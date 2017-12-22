@@ -17,3 +17,8 @@
 .point-leaders {
   margin-bottom: 5px;
 }
+
+.game-time {
+  float: right;
+  margin-top: -10px;
+}
