@@ -10,7 +10,7 @@ class App extends React.Component {
     return (
       <div id="main-container">
         <NavBar />
-        <Jumbotron />
+        <Jumbotron /><br>
         <Schedule />
       </div>
     )
