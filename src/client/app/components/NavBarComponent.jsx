@@ -1,5 +1,5 @@
 import React from 'react';
-import {FormControl, FormGroup, ControlLabel, Navbar, Button} from 'react-bootstrap';
+import {FormControl, FormGroup, ControlLabel, Nav, Navbar, NavItem, Button, Image} from 'react-bootstrap';
 
 class NavBarComponent extends React.Component {
 
@@ -25,12 +25,17 @@ class NavBarComponent extends React.Component {
             <Navbar.Toggle />
           </Navbar.Header>
           <Navbar.Collapse>
-            <Navbar.Form >
-              <FormGroup className="search-bar">
-                <FormControl type="text" placeholder="Search" />
-              </FormGroup>
-              <Button type="submit">Submit</Button>
-            </Navbar.Form>
+            <Nav>
+              <Navbar.Form >
+                <FormGroup className="search-bar">
+                  <FormControl type="text" placeholder="Search" />
+                </FormGroup>
+                <Button type="submit">Submit</Button>
+              </Navbar.Form>
+            </Nav>
+            <Nav pullRight>
+              <NavItem href="#" pullRight><Image className="nba-logo" src="../../assets/nba-logo.jpeg" circle /></NavItem>
+            </Nav>
           </Navbar.Collapse>
         </Navbar>
       </div>

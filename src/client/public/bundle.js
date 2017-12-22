@@ -38093,17 +38093,30 @@ var NavBarComponent = function (_React$Component) {
             _reactBootstrap.Navbar.Collapse,
             null,
             _react2.default.createElement(
-              _reactBootstrap.Navbar.Form,
+              _reactBootstrap.Nav,
               null,
               _react2.default.createElement(
-                _reactBootstrap.FormGroup,
-                { className: 'search-bar' },
-                _react2.default.createElement(_reactBootstrap.FormControl, { type: 'text', placeholder: 'Search' })
-              ),
+                _reactBootstrap.Navbar.Form,
+                null,
+                _react2.default.createElement(
+                  _reactBootstrap.FormGroup,
+                  { className: 'search-bar' },
+                  _react2.default.createElement(_reactBootstrap.FormControl, { type: 'text', placeholder: 'Search' })
+                ),
+                _react2.default.createElement(
+                  _reactBootstrap.Button,
+                  { type: 'submit' },
+                  'Submit'
+                )
+              )
+            ),
+            _react2.default.createElement(
+              _reactBootstrap.Nav,
+              { pullRight: true },
               _react2.default.createElement(
-                _reactBootstrap.Button,
-                { type: 'submit' },
-                'Submit'
+                _reactBootstrap.NavItem,
+                { href: '#', pullRight: true },
+                _react2.default.createElement(_reactBootstrap.Image, { className: 'nba-logo', src: '../../assets/nba-logo.jpeg', circle: true })
               )
             )
           )
