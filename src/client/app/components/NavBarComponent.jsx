@@ -22,10 +22,11 @@ class NavBarComponent extends React.Component {
             <Navbar.Brand>
               <a href="https://www.nba.com">NBA</a>
             </Navbar.Brand>
+            <Navbar.Toggle />
           </Navbar.Header>
           <Navbar.Collapse>
-            <Navbar.Form pullLeft>
-              <FormGroup>
+            <Navbar.Form >
+              <FormGroup className="search-bar">
                 <FormControl type="text" placeholder="Search" />
               </FormGroup>
               <Button type="submit">Submit</Button>

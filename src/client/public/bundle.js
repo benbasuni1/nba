@@ -38086,17 +38086,18 @@ var NavBarComponent = function (_React$Component) {
                 { href: 'https://www.nba.com' },
                 'NBA'
               )
-            )
+            ),
+            _react2.default.createElement(_reactBootstrap.Navbar.Toggle, null)
           ),
           _react2.default.createElement(
             _reactBootstrap.Navbar.Collapse,
             null,
             _react2.default.createElement(
               _reactBootstrap.Navbar.Form,
-              { pullLeft: true },
+              null,
               _react2.default.createElement(
                 _reactBootstrap.FormGroup,
-                null,
+                { className: 'search-bar' },
                 _react2.default.createElement(_reactBootstrap.FormControl, { type: 'text', placeholder: 'Search' })
               ),
               _react2.default.createElement(
