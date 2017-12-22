@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar } from 'react-bootstrap';
+import {FormControl, FormGroup, ControlLabel, Navbar, Button} from 'react-bootstrap';
 
 class NavBarComponent extends React.Component {
 
@@ -23,6 +23,14 @@ class NavBarComponent extends React.Component {
               <a href="https://www.nba.com">NBA</a>
             </Navbar.Brand>
           </Navbar.Header>
+          <Navbar.Collapse>
+            <Navbar.Form pullLeft>
+              <FormGroup>
+                <FormControl type="text" placeholder="Search" />
+              </FormGroup>
+              <Button type="submit">Submit</Button>
+            </Navbar.Form>
+          </Navbar.Collapse>
         </Navbar>
       </div>
     );

@@ -8814,12 +8814,7 @@ var App = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { id: 'main-container' },
-        _react2.default.createElement(_NavBarComponent2.default, null),
-        _react2.default.createElement(
-          _reactBootstrap.Button,
-          null,
-          'Default'
-        )
+        _react2.default.createElement(_NavBarComponent2.default, null)
       );
     }
   }]);
@@ -38090,6 +38085,24 @@ var NavBarComponent = function (_React$Component) {
                 'a',
                 { href: 'https://www.nba.com' },
                 'NBA'
+              )
+            )
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Navbar.Collapse,
+            null,
+            _react2.default.createElement(
+              _reactBootstrap.Navbar.Form,
+              { pullLeft: true },
+              _react2.default.createElement(
+                _reactBootstrap.FormGroup,
+                null,
+                _react2.default.createElement(_reactBootstrap.FormControl, { type: 'text', placeholder: 'Search' })
+              ),
+              _react2.default.createElement(
+                _reactBootstrap.Button,
+                { type: 'submit' },
+                'Submit'
               )
             )
           )
