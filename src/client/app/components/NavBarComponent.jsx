@@ -1,4 +1,5 @@
 import React from 'react';
+import { Navbar } from 'react-bootstrap';
 
 class NavBarComponent extends React.Component {
 
@@ -16,8 +17,13 @@ class NavBarComponent extends React.Component {
   render() {
     return (
       <div>
-        Likes : <span>{this.state.likesCount}</span>
-        <div><button onClick={this.onLike}>Like Me</button></div>
+        <Navbar>
+          <Navbar.Header>
+            <Navbar.Brand>
+              <a href="https://www.nba.com">NBA</a>
+            </Navbar.Brand>
+          </Navbar.Header>
+        </Navbar>
       </div>
     );
   }

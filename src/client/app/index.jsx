@@ -8,11 +8,8 @@ import Content from './components/ContentComponent.jsx';
 class App extends React.Component {
   render () {
     return (
-      <div>
-        <p>Hello React Project</p>
-        <AwesomeComponent />
+      <div id="main-container">
         <NavBar />
-        <Button>Default</Button>
       </div>
     )
   }
