@@ -1,7 +1,6 @@
 import React from 'react';
 import {render} from 'react-dom';
-import { Button } from 'react-bootstrap';
-import AwesomeComponent from './components/AwesomeComponent.jsx';
+import {Button} from 'react-bootstrap';
 import NavBar from './components/NavBarComponent.jsx';
 import Jumbotron from './components/JumbotronComponent.jsx';
 
