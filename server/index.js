@@ -7,6 +7,7 @@ const cors = require('cors')
 var defaultCorsHeaders = {
   'access-control-allow-origin': '127.0.0.1:3000'
 }
+
 //Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

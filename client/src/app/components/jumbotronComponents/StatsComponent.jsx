@@ -38,6 +38,44 @@ class StatsComponent extends React.Component {
     });
   }
 
+  getASTLeader() {
+    var data = {
+      LeagueID: "00",
+      SeasonType: "Regular Season",
+      PerMode: "Totals",
+      StatCategory: "AST",
+      Season: "2017-18",
+      Scope: "S"
+    }
+
+    $.get({
+      url: 'http://stats.nba.com/stats/leagueleaders',
+      data: data,
+      success: data => {
+        console.log("data: " + data);
+      }
+    });
+  }
+
+  getRPGLeader() {
+    var data = {
+      LeagueID: "00",
+      SeasonType: "Regular Season",
+      PerMode: "Totals",
+      StatCategory: "RPG",
+      Season: "2017-18",
+      Scope: "S"
+    }
+
+    $.get({
+      url: 'http://stats.nba.com/stats/leagueleaders',
+      data: data,
+      success: data => {
+        console.log("data: " + data);
+      }
+    });
+  }
+
   render() {
     return (
       <div>

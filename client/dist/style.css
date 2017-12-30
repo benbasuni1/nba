@@ -22,3 +22,46 @@
   float: right;
   margin-top: -10px;
 }
+
+.team {
+  margin: 5px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.team:hover {
+  background: red;
+}
+
+.LAL {
+  background: yellow;
+}
+
+.SAC {
+  background: mediumpurple;
+}
+
+.PHO {
+  background: darkorange;
+}
+
+.LAC {
+  background: palevioletred;
+}
+
+.HOU {
+  background: red;
+}
+
+.GSW {
+  background: gold;
+}
+
+.SAS {
+  background: grey;
+}
+
+.MEM {
+  background: steelblue;
+}
+

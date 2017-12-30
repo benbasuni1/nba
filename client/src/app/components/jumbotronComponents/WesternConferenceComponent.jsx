@@ -6,7 +6,7 @@ class WesternConferenceComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      teams: [] 
+      teams: []
     }
   }
 
@@ -15,19 +15,25 @@ class WesternConferenceComponent extends React.Component {
   }
 
   getWestTeams() {
-    var end = [];
+    var teams = [];
     $.get('/westteams', data => {
-      for (var name of data) {
-        end.push(name.cityname + ' ' + name.teamname);
+      for (var team of data) {
+        teams.push({
+          name: team.cityname + ' ' + team.teamname,
+          abbr: team.abbr,
+          id  : team.id
+        });
       }
-      this.setState({teams: end});
+      this.setState({
+        teams: teams,
+      });
     });
   }
 
   render() {
     return (
       <div>
-        {this.state.teams.map( team => <div align="center" key={team}>{team}</div> )}
+        {this.state.teams.map( team => <div align="center" key={team.abbr} className={team.abbr + ' team'}>{team.name}</div> )}
       </div>
     )
   }

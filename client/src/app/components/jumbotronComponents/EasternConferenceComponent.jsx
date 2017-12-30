@@ -17,8 +17,11 @@ class EasternConferenceComponent extends React.Component {
   getEastTeams() {
     var end = [];
     $.get('/eastteams', data => {
-      for (var name of data)  {
-        end.push(name.cityname + ' ' + name.teamname);
+      for (var team of data)  {
+        end.push({
+          name: team.cityname + ' ' + team.teamname,
+          abbr: team.abbr
+        });
       }
       this.setState({teams: end});
     });
@@ -27,7 +30,7 @@ class EasternConferenceComponent extends React.Component {
   render() {
     return (
       <div>
-        {this.state.teams.map( team => <div align="center" key={team}>{team}</div> )}
+        {this.state.teams.map( team => <div align="center" key={team.abbr} className={team.abbr + ' team'}>{team.name}</div> )}
       </div>
     )
   }
