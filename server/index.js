@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 
 app.get('/eastteams', (req, res) => {
   var end = {};
-  dbHandlers.getEastTeams( (err, result) => {
+  dbHandlers.getEastTeams((err, result) => {
     if (err) {
       res.status(404);
       res.send(err);
@@ -33,7 +33,7 @@ app.get('/eastteams', (req, res) => {
 
 app.get('/westteams', (req, res) => {
   var end = {};
-  dbHandlers.getWestTeams( (err, result) => {
+  dbHandlers.getWestTeams((err, result) => {
     if (err) {
       res.status(404);
       res.send(err);

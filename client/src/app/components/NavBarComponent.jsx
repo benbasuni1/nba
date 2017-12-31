@@ -5,6 +5,20 @@ class NavBarComponent extends React.Component {
 
   constructor(props) {
     super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.items = props.items;
+    this.state = {
+      value: ''
+    };
+  }
+
+  handleChange(data) {
+    this.setState({value: data.target.value});
+  }
+
+  handleClick() {
+    console.log('handled click!');
   }
 
   render() {
@@ -21,9 +35,9 @@ class NavBarComponent extends React.Component {
             <Nav>
               <Navbar.Form >
                 <FormGroup className="search-bar">
-                  <FormControl type="text" placeholder="Search" />
+                  <input type="text" placeholder="Search" value={this.state.value} onChange={this.handleChange}/>
                 </FormGroup>
-                <Button type="submit">Submit</Button>
+                <Button type="submit" onClick={this.handleClick}>Submit</Button>
               </Navbar.Form>
             </Nav>
             <Nav pullRight>

@@ -5,11 +5,11 @@ var config = {
   user: 'root',
   password: '',
   database: 'nba'
-}
+};
 
 var connection = mysql.createConnection(config);
 
-connection.connect(() => {
+connection.connect( () => {
   console.log('connected!');
 });
 
@@ -19,7 +19,7 @@ var getEastTeams = cb => {
     if (error) cb(error);
     else cb(null, results);
   });
-}
+};
 
 var getWestTeams = cb => {
   const query = "SELECT * FROM teams WHERE conference = 'West'";
@@ -27,10 +27,10 @@ var getWestTeams = cb => {
     if (error) cb(error);
     else cb(null, results);
   });
-}
+};
 
 
 module.exports = {
   getEastTeams,
   getWestTeams
-}
+};

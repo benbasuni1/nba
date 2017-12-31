@@ -30,7 +30,7 @@
 }
 
 .team:hover {
-  background: red;
+  cursor: pointer;
 }
 
 .LAL {
