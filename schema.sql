@@ -8,7 +8,6 @@ DROP TABLE IF EXISTS reb_leader;
 
 CREATE TABLE teams
 (
-  id   int AUTO_INCREMENT NOT NULL,
   rank int NOT NULL,
   won  int NOT NULL,
   lost int NOT NULL,
@@ -41,8 +40,8 @@ CREATE TABLE teams
   streak_type varchar(5) NOT NULL,
   streak_total int NOT NULL,
   games_played int NOT NULL,
-  PRIMARY KEY (id),
-  UNIQUE (id)
+  PRIMARY KEY (team_id),
+  UNIQUE (team_id)
 );
 
 CREATE TABLE pts_leader

@@ -12,46 +12,18 @@ class Side extends React.Component {
       <Sidebar width={280} isOpen={false} noOverlay className="sidebar">
 
         <a className="side-item">Standings</a>
-
-        <NavDropdown className="side-item" eventKey={3} title="Teams">
-          <MenuItem eventKey={3.1}>Action</MenuItem>
-          <MenuItem eventKey={3.2}>Another action</MenuItem>
-          <MenuItem eventKey={3.3}>Something else here</MenuItem>
+        <a className="side-item">Teams</a>
+        <a className="side-item">Players</a>
+        <a className="side-item">Stats</a>
+        <a className="side-item">Graphs</a>
+        <NavDropdown id="nav-dropdown" className="side-item" eventKey={3} title="Schedule">
+          <MenuItem eventKey={3.1}>Today</MenuItem>
+          <MenuItem eventKey={3.2}>Weekly</MenuItem>
+          <MenuItem eventKey={3.3}>Monthly</MenuItem>
           <MenuItem divider />
-          <MenuItem eventKey={3.4}>Separated link</MenuItem>
-        </NavDropdown>
-
-        <NavDropdown className="side-item" eventKey={3} title="Players">
-          <MenuItem eventKey={3.1}>Action</MenuItem>
-          <MenuItem eventKey={3.2}>Another action</MenuItem>
-          <MenuItem eventKey={3.3}>Something else here</MenuItem>
-          <MenuItem divider />
-          <MenuItem eventKey={3.4}>Separated link</MenuItem>
-        </NavDropdown>
-
-        <NavDropdown className="side-item" eventKey={3} title="Stats">
-          <MenuItem eventKey={3.1}>Action</MenuItem>
-          <MenuItem eventKey={3.2}>Another action</MenuItem>
-          <MenuItem eventKey={3.3}>Something else here</MenuItem>
-          <MenuItem divider />
-          <MenuItem eventKey={3.4}>Separated link</MenuItem>
-        </NavDropdown>
-
-        <NavDropdown className="side-item" eventKey={3} title="Schedule">
-          <MenuItem eventKey={3.1}>Action</MenuItem>
-          <MenuItem eventKey={3.2}>Another action</MenuItem>
-          <MenuItem eventKey={3.3}>Something else here</MenuItem>
-          <MenuItem divider />
-          <MenuItem eventKey={3.4}>Separated link</MenuItem>
+          <MenuItem eventKey={3.4}>By Team</MenuItem>
         </NavDropdown>
         
-        <NavDropdown className="side-item" eventKey={3} title="Graphs">
-          <MenuItem eventKey={3.1}>Action</MenuItem>
-          <MenuItem eventKey={3.2}>Another action</MenuItem>
-          <MenuItem eventKey={3.3}>Something else here</MenuItem>
-          <MenuItem divider />
-          <MenuItem eventKey={3.4}>Separated link</MenuItem>
-        </NavDropdown>
 
       </Sidebar>
     );
