@@ -1,5 +1,5 @@
-const dbHandlers = require('../db');
-const nbaAPI = require('../lib/nbaAPI.js');
+const sqlInteraction = require('../db');
+const nbaInteraction = require('../lib/nbaAPI.js');
 const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
@@ -9,19 +9,19 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('client/dist'));
 
 app.get('/eastteams', (req, res) => {
-  dbHandlers.getEastTeams()
+  sqlInteraction.getEastTeams()
   .then(data => res.json(data))
   .catch(err => res.json(err));
 });
 
 app.get('/westteams', (req, res) => {
-  dbHandlers.getWestTeams()
+  sqlInteraction.getWestTeams()
   .then(data => res.json(data))
   .catch(err => res.json(err));
 });
 
 app.get('/standings', (req, res) => {
-  nbaAPI.getTeamStandings()
+  nbaInteraction.getTeamStandings()
   .then(data => res.json(data.data.standing))
   .catch(err => res.json(err));
 });
@@ -30,34 +30,44 @@ app.get('/standings', (req, res) => {
 == Leaders ==
 ========== */
 app.get('/leagueleaders/pts', (req, res) => {
-  nbaAPI.getPTSLeaders()
+  nbaInteraction.getPTSLeaders()
   .then(data => {
     var players = data.data.resultSet.rowSet;
-    dbHandlers.insertPPGLeaders(players);
+    sqlInteraction.insertPPGLeaders(players);
   });
 });
 
 app.get('/insert/standings', (req, res) => {
-  nbaAPI.getTeamStandings()
+  nbaInteraction.getTeamStandings()
   .then(data => {
     var teams = data.data.standing;
-    dbHandlers.insertTeamStandings(teams);
-  });
+    sqlInteraction.insertTeamStandings(teams);
+    return teams;
+  }).then(teams => res.json(teams));
 });
+/* ============================================================ */
+app.get('/insert/team_stats', (req, res) => {
+  nbaInteraction.getTeamStats()
+  .then(data => {
+    var teamStats = data.data.team_stats;
+    return sqlInteraction.insertTeamStats(teamStats);
+  }).then(data => res.json(data));
+});
+/* ============================================================ */
 
 app.get('/leagueleaders/ast', (req, res) => {
-  nbaAPI.getASTLeaders()
+  nbaInteraction.getASTLeaders()
   .then(data => {
     var players = data.data.resultSet.rowSet;
-    dbHandlers.insertAPGLeaders(players);
+    sqlInteraction.insertAPGLeaders(players);
   });
 });
 
 app.get('/leagueleaders/reb', (req, res) => {
-  nbaAPI.getREBLeaders()
+  nbaInteraction.getREBLeaders()
   .then(data => {
     var players = data.data.resultSet.rowSet;
-    dbHandlers.insertRPGLeaders(players);
+    sqlInteraction.insertRPGLeaders(players);
   });
 });
 

@@ -25,17 +25,32 @@ var getWestTeams = () => {
   });
 };
 
+var getAllTeamIDs = () => {
+  var query = "SELECT team_id from standings";
+  return new Promise((resolve, reject) => {
+    connection.query(query, (error, results) => error ? reject(error) : resolve(results));
+  }).catch(err => console.log(err));
+};
+
 /*============
 === INSERT ===
 ============*/
 
 var insertTeamStandings = teams => {
-  var query = "INSERT INTO teams SET ?";
+  var query = "INSERT INTO standings SET ?";
   return Promise.all(teams.map(team => {
     new Promise((resolve, reject) => {
       connection.query(query, parser.team(team), (error, results) => error ? reject(error) : resolve(results));
     }).catch(err => console.log(err));
   }));
+};
+
+var insertTeamStats = teams => {
+  var query = "INSERT INTO team_stats SET ?";
+  return new Promise((resolve, reject) => {
+     var parsedTeam = parser.teamStats(teams);
+     resolve(parsedTeam);
+  });
 };
 
 var insertPPGLeaders = players => {
@@ -68,6 +83,8 @@ var insertRPGLeaders = players => {
 module.exports = {
   getEastTeams,
   getWestTeams,
+  getAllTeamIDs,
+  insertTeamStats,
   insertPPGLeaders,
   insertAPGLeaders,
   insertRPGLeaders,

@@ -1,12 +1,13 @@
 CREATE DATABASE IF NOT EXISTS nba;
 USE nba;
 
-DROP TABLE IF EXISTS teams;
+DROP TABLE IF EXISTS standings;
+DROP TABLE IF EXISTS team_stats;
 DROP TABLE IF EXISTS pts_leader;
 DROP TABLE IF EXISTS ast_leader;
 DROP TABLE IF EXISTS reb_leader;
 
-CREATE TABLE teams
+CREATE TABLE standings
 (
   rank int NOT NULL,
   won  int NOT NULL,
@@ -42,6 +43,49 @@ CREATE TABLE teams
   games_played int NOT NULL,
   PRIMARY KEY (team_id),
   UNIQUE (team_id)
+);
+
+CREATE TABLE team_stats
+(
+  team_id varchar(20) NOT NULL,
+  team_name varchar(50) NOT NULL,
+  games_played int NOT NULL,
+  won int NOT NULL,
+  lost int NOT NULL,
+
+  pts int NOT NULL,
+  ast int NOT NULL,
+  tu int NOT NULL,
+  stl int NOT NULL,
+  blk int NOT NULL,
+  reb int NOT NULL,
+  fga int NOT NULL,
+  fgm int NOT NULL,
+  threesAttempted int NOT NULL,
+  threesMade int NOT NULL,
+  fta int NOT NULL,
+  ftm int NOT NULL,
+  d_reb int NOT NULL,
+  o_reb int NOT NULL,
+  pf int NOT NULL,
+
+  vs_pts int NOT NULL,
+  vs_ast int NOT NULL,
+  vs_tu int NOT NULL,
+  vs_stl int NOT NULL,
+  vs_blk int NOT NULL,
+  vs_reb int NOT NULL,
+  vs_fga int NOT NULL,
+  vs_fgm int NOT NULL,
+  vs_threesAttempted int NOT NULL,
+  vs_threesMade int NOT NULL,
+  vs_fta int NOT NULL,
+  vs_ftm int NOT NULL,
+  vs_d_reb int NOT NULL,
+  vs_o_reb int NOT NULL,
+  vs_pf int NOT NULL,
+  PRIMARY KEY(team_id),
+  UNIQUE(team_id)
 );
 
 CREATE TABLE pts_leader
