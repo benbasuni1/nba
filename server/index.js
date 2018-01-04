@@ -22,7 +22,16 @@ app.get('/westteams', (req, res) => {
 
 app.get('/leagueleaders/pts', (req, res) => {
   nbaAPI.getPTSLeaders()
-  .then(data => res.json(data.data.resultSet.rowSet));
+  .then(data => {
+    var players = data.data.resultSet.rowSet;
+    dbHandlers.insertTop100PPGLeaders(players);
+    // .then(data => {
+    //   console.log('insert finished!');
+    //   res.json(data);
+    // })
+    // res.json(players);
+  });
+
 });
 
 app.listen(3000);

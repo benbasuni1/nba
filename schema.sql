@@ -28,13 +28,15 @@ CREATE TABLE teams
 CREATE TABLE pts_leader
 (
   id          int AUTO_INCREMENT NOT NULL,
+  player_id   int         NOT NULL,
   playername  varchar(50) NOT NULL,
   team        varchar(50) NOT NULL,
-  pts         varchar(4)  NOT NULL,
-  ppg         varchar(3)  NOT NULL,
-  coach       varchar(20),
-  PRIMARY KEY (id)
-)
+  gp          int         NOT NULL,
+  pts         int         NOT NULL,
+  ppg         float       NOT NULL,
+  PRIMARY KEY (id),
+  UNIQUE (id)
+);
 
 INSERT INTO division (name) VALUES 
 ('Atlantic'), ('Central'),

@@ -1,4 +1,5 @@
 var mysql = require('mysql');
+var parser = require('../lib/parser.js');
 
 var config = {
   host: 'localhost',
@@ -9,6 +10,9 @@ var config = {
 
 var connection = mysql.createConnection(config);
 
+/*===========
+== GETTERS ==
+===========*/
 var getEastTeams = () => {
   const query = "SELECT * FROM teams WHERE conference = 'East'";
   return new Promise ((resolve, reject) => {
@@ -29,26 +33,21 @@ var getWestTeams = () => {
   });
 };
 
-var getLeagueLeaders = category => {
-  var query = '';
-  if      (category === 'PTS') query = "SELECT * FROM leaders WHERE category = 'PTS'";
-  else if (category === 'REB') query = "SELECT * FROM leaders WHERE category = 'REB'";
-  else if (category === 'AST') query = "SELECT * FROM leaders WHERE category = 'AST'";
+/*============
+=== INSERT ===
+============*/
 
-  return new Promise((resolve, reject) => {
-    connection.query(query, (err, reults) => {
-      if (error) reject(error);
-      else resolve(results);
-    });
-  });
-};
-
-var insertLeagueLeaders = {
-
+var insertPPGLeaders = players => {
+  var query = "INSERT INTO pts_leader SET ?";
+  return Promise.all(players.map(player => {
+    new Promise((resolve, reject) => {
+      connection.query(query, parser.pts(player), (error, results) => error ? reject(error) : resolve(results));
+    }).catch(err => console.log(err));
+  }));
 };
 
 module.exports = {
   getEastTeams,
   getWestTeams,
-  getLeagueLeaders
+  insertPPGLeaders
 };
