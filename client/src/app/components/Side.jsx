@@ -9,7 +9,7 @@ class Side extends React.Component {
 
   render () {
     return (
-      <Sidebar width={280} isOpen={false} noOverlay className="sidebar">
+      <Sidebar width={280} isOpen={true} noOverlay className="sidebar">
 
         <a className="side-item">Standings</a>
         <a className="side-item">Teams</a>

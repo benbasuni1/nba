@@ -5,8 +5,19 @@ body {
 
 .standings {
   color: white;
+  text-align: center;
 }
+
 .search-bar {
+  margin-right: 10px;
+}
+
+.win-loss {
+  float: right;
+}
+
+.win-percentage {
+  float: right;
   margin-right: 10px;
 }
 
@@ -52,12 +63,13 @@ a {
 
 .team {
   margin: 5px;
-  border: 2px solid black;
-  border-radius: 5px;
+  text-align: left;
 }
 
 .team:hover {
   cursor: pointer;
+  color: #061922;
+  transform: scale(1.1);
 }
 
 .LAL {
