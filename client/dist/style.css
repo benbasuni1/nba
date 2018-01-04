@@ -1,9 +1,14 @@
+body {
+  font-style: 'evaira';
+  background: #393996;
+}
 .search-bar {
   margin-right: 10px;
 }
 
 .navbar {
   margin-bottom: .1px !important;
+  background: #ffffff;
 }
 
 .search {
@@ -11,8 +16,19 @@
   margin-right: 10px;
 }
 
+.toggle-button-group {
+  top: 8px;
+}
+
+a {
+  color: #061922 !important;
+}
+
 .side-item {
+  font-size: 24px;
+  cursor: pointer;
   margin: 10px 0 0 15px;
+  color: #061922 !important;
 }
 
 .center {
@@ -83,7 +99,7 @@
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: #373a47;
+  background:#000000;
 }
 
 /* Position and sizing of clickable cross button */
@@ -94,12 +110,12 @@
 
 /* Color/shape of close button cross */
 .bm-cross {
-  background: #2b658b;
+  background: #000000;
 }
 
 /* General sidebar styles */
 .bm-menu {
-  background: #c7c9d1;
+  background: #c4ced3;
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }

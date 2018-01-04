@@ -1,5 +1,5 @@
 import React from 'react';
-import {FormControl, FormGroup, ControlLabel, Nav, Navbar, NavItem, Button, Image} from 'react-bootstrap';
+import {FormControl, FormGroup, ControlLabel, Nav, Navbar, NavItem, Button, Image, ButtonToolbar, ToggleButtonGroup, ToggleButton} from 'react-bootstrap';
 
 class NavBarComponent extends React.Component {
 
@@ -38,6 +38,13 @@ class NavBarComponent extends React.Component {
             </FormGroup>
             <Button type="submit">Submit</Button>
           </Navbar.Form>
+          <ButtonToolbar>
+            <ToggleButtonGroup className="toggle-button-group" type="radio" name="options">
+              <ToggleButton value={1}>Teams
+              </ToggleButton>
+              <ToggleButton value={2}>Players</ToggleButton>
+            </ToggleButtonGroup>
+          </ButtonToolbar>
         </Navbar.Collapse>
       </Navbar>
     </div>

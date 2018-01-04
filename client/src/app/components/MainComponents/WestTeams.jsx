@@ -11,7 +11,7 @@ class WesternConferenceComponent extends React.Component {
   }
 
   componentDidMount() {
-    this.getWestTeams()
+    this.getWestTeams();
   }
 
   getWestTeams() {

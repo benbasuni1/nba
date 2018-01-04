@@ -13,13 +13,8 @@ class Main extends React.Component {
   render() {
     return (
       <div>
-        <Grid>
-          <Row className="show-grid"> 
-            <Col md={4}> <EastTeams /> </Col>
-            <Col md={4}> <WestTeams /> </Col>
-            <Col md={4}> <Stats /> </Col>
-          </Row>
-        </Grid>
+        <EastStandings/>
+        <WestStandings/>
       </div>
     );
   }
@@ -27,3 +22,6 @@ class Main extends React.Component {
 }
 
 export default Main;
+            {/* <Col md={4}> <EastTeams /> </Col>
+            <Col md={4}> <WestTeams /> </Col>
+            <Col md={4}> <Stats /> </Col> */}

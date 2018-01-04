@@ -15,11 +15,11 @@ class App extends React.Component {
       <div id="main-container">
         <NavBar/>
         <Side/>
-        {/* <Grid>
+        <Grid>
         <Row>
-          <Col mdOffset={1}><Main/></Col>
+          <Col mdOffset={3}><Main/></Col>
         </Row>
-        </Grid> */}
+        </Grid>
       </div>
     )
   }
