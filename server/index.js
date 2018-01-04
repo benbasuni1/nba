@@ -1,47 +1,28 @@
 const dbHandlers = require('../db');
+const nbaAPI = require('../lib/nbaAPI.js');
 const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
-const cors = require('cors')
 
-var defaultCorsHeaders = {
-  'access-control-allow-origin': '127.0.0.1:3000'
-}
-
-//Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-//Static Assets
 app.use(express.static('client/dist'));
 
-app.get('/', (req, res) => {
-  res.writeHead(404, defaultCorsHeaders);
-});
-
 app.get('/eastteams', (req, res) => {
-  var end = {};
-  dbHandlers.getEastTeams((err, result) => {
-    if (err) {
-      res.status(404);
-      res.send(err);
-    } else {
-      res.json(result);
-    }
-  });
+  dbHandlers.getEastTeams()
+  .then(data => res.json(data))
+  .catch(err => res.json(err));
 });
 
 app.get('/westteams', (req, res) => {
-  var end = {};
-  dbHandlers.getWestTeams((err, result) => {
-    if (err) {
-      res.status(404);
-      res.send(err);
-    } else {
-      res.json(result);
-    }
-  });
+  dbHandlers.getWestTeams()
+  .then(data => res.json(data))
+  .catch(err => res.json(err));
 });
 
-//Listen
+app.get('/leagueleaders/pts', (req, res) => {
+  nbaAPI.getPTSLeaders()
+  .then(data => res.json(data.data.resultSet.rowSet));
+});
+
 app.listen(3000);
