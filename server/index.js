@@ -20,6 +20,12 @@ app.get('/westteams', (req, res) => {
   .catch(err => res.json(err));
 });
 
+app.get('/standings', (req, res) => {
+  nbaAPI.getTeamStandings()
+  .then(data => res.json(data.data.standing))
+  .catch(err => res.json(err));
+});
+
 /* ==========
 == Leaders ==
 ========== */
@@ -28,6 +34,14 @@ app.get('/leagueleaders/pts', (req, res) => {
   .then(data => {
     var players = data.data.resultSet.rowSet;
     dbHandlers.insertPPGLeaders(players);
+  });
+});
+
+app.get('/insert/standings', (req, res) => {
+  nbaAPI.getTeamStandings()
+  .then(data => {
+    var teams = data.data.standing;
+    dbHandlers.insertTeamStandings(teams);
   });
 });
 

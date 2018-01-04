@@ -28,6 +28,16 @@ var getWestTeams = () => {
 /*============
 === INSERT ===
 ============*/
+
+var insertTeamStandings = teams => {
+  var query = "INSERT INTO teams SET ?";
+  return Promise.all(teams.map(team => {
+    new Promise((resolve, reject) => {
+      connection.query(query, parser.team(team), (error, results) => error ? reject(error) : resolve(results));
+    }).catch(err => console.log(err));
+  }));
+};
+
 var insertPPGLeaders = players => {
   var query = "INSERT INTO pts_leader SET ?";
   return Promise.all(players.map(player => {
@@ -60,5 +70,6 @@ module.exports = {
   getWestTeams,
   insertPPGLeaders,
   insertAPGLeaders,
-  insertRPGLeaders
+  insertRPGLeaders,
+  insertTeamStandings
 };
