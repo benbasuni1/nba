@@ -34,13 +34,10 @@ class NavBarComponent extends React.Component {
         <Navbar.Collapse>
           <Navbar.Form pullLeft>
             <FormGroup>
-              <FormControl type="text" placeholder="Search" />
+              <FormControl className="search" type="text" placeholder="Search" />
             </FormGroup>
             <Button type="submit">Submit</Button>
           </Navbar.Form>
-            <Nav pullRight>
-              <NavItem href="#" pullRight><Image className="nba-logo" src="../../assets/nba-logo.jpeg" circle /></NavItem>
-            </Nav>
         </Navbar.Collapse>
       </Navbar>
     </div>

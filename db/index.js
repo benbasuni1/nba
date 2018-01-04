@@ -28,7 +28,6 @@ var getWestTeams = () => {
 /*============
 === INSERT ===
 ============*/
-
 var insertPPGLeaders = players => {
   var query = "INSERT INTO pts_leader SET ?";
   return Promise.all(players.map(player => {

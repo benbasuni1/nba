@@ -1,9 +1,9 @@
 import React from 'react';
+import {Grid, Row, Col} from 'react-bootstrap';
 import { render } from 'react-dom';
-import { Button } from 'react-bootstrap';
 import NavBar from './components/NavBar.jsx';
+import Side from './components/Side.jsx';
 import Main from './components/Main.jsx';
-import Schedule from './components/Schedule.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -14,12 +14,15 @@ class App extends React.Component {
     return (
       <div id="main-container">
         <NavBar/>
-        <Main/>
-        <Schedule/>
+        <Side/>
+        {/* <Grid>
+        <Row>
+          <Col mdOffset={1}><Main/></Col>
+        </Row>
+        </Grid> */}
       </div>
     )
   }
 }
 
 render(<App />, document.getElementById('app'));
-
