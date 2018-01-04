@@ -47,11 +47,15 @@ app.get('/insert/standings', (req, res) => {
 });
 /* ============================================================ */
 app.get('/insert/team_stats', (req, res) => {
-  nbaInteraction.getTeamStats()
+  sqlInteraction.getAllTeamIDs()
+  .then(teamIds => {
+    return nbaInteraction.getTeamStats(teamIds);
+  })
   .then(data => {
     var teamStats = data.data.team_stats;
     return sqlInteraction.insertTeamStats(teamStats);
-  }).then(data => res.json(data));
+  }).then(data => res.json(data))
+  .catch(err => console.log(err));
 });
 /* ============================================================ */
 

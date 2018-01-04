@@ -48,8 +48,7 @@ var insertTeamStandings = teams => {
 var insertTeamStats = teams => {
   var query = "INSERT INTO team_stats SET ?";
   return new Promise((resolve, reject) => {
-     var parsedTeam = parser.teamStats(teams);
-     resolve(parsedTeam);
+    connection.query(query, parser.teamStats(teams), (error, results) => error? reject(error) : resolve(results));
   });
 };
 

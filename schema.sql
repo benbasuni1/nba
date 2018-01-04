@@ -47,7 +47,7 @@ CREATE TABLE standings
 
 CREATE TABLE team_stats
 (
-  team_id varchar(20) NOT NULL,
+  team_id varchar(50) NOT NULL,
   team_name varchar(50) NOT NULL,
   games_played int NOT NULL,
   won int NOT NULL,
