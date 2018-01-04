@@ -20,18 +20,31 @@ app.get('/westteams', (req, res) => {
   .catch(err => res.json(err));
 });
 
+/* ==========
+== Leaders ==
+========== */
 app.get('/leagueleaders/pts', (req, res) => {
   nbaAPI.getPTSLeaders()
   .then(data => {
     var players = data.data.resultSet.rowSet;
-    dbHandlers.insertTop100PPGLeaders(players);
-    // .then(data => {
-    //   console.log('insert finished!');
-    //   res.json(data);
-    // })
-    // res.json(players);
+    dbHandlers.insertPPGLeaders(players);
   });
+});
 
+app.get('/leagueleaders/ast', (req, res) => {
+  nbaAPI.getASTLeaders()
+  .then(data => {
+    var players = data.data.resultSet.rowSet;
+    dbHandlers.insertAPGLeaders(players);
+  });
+});
+
+app.get('/leagueleaders/reb', (req, res) => {
+  nbaAPI.getREBLeaders()
+  .then(data => {
+    var players = data.data.resultSet.rowSet;
+    dbHandlers.insertRPGLeaders(players);
+  });
 });
 
 app.listen(3000);

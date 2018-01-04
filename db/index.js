@@ -1,14 +1,12 @@
 var mysql = require('mysql');
 var parser = require('../lib/parser.js');
 
-var config = {
+var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '',
   database: 'nba'
-};
-
-var connection = mysql.createConnection(config);
+});
 
 /*===========
 == GETTERS ==
@@ -16,20 +14,14 @@ var connection = mysql.createConnection(config);
 var getEastTeams = () => {
   const query = "SELECT * FROM teams WHERE conference = 'East'";
   return new Promise ((resolve, reject) => {
-    connection.query(query, (error, results) => {
-      if (error) reject(error);
-      else resolve(results);
-    });
+    connection.query(query, (error, results) => error ? reject(error) : resolve(results));
   });
 };
 
 var getWestTeams = () => {
   const query = "SELECT * FROM teams WHERE conference = 'West'";
   return new Promise ((resolve, reject) => {
-    connection.query(query, (error, results) => {
-      if (error) reject(error);
-      else resolve(results);
-    });
+    connection.query(query, (error, results) => error ? reject(error) : resolve(results));
   });
 };
 
@@ -46,8 +38,28 @@ var insertPPGLeaders = players => {
   }));
 };
 
+var insertAPGLeaders = players => {
+  var query = "INSERT INTO ast_leader SET ?";
+  return Promise.all(players.map(player => {
+    new Promise((resolve, reject) => {
+      connection.query(query, parser.ast(player), (error, results) => error ? reject(error) : resolve(results));
+    }).catch(err => console.log(err));
+  }));
+};
+
+var insertRPGLeaders = players => {
+  var query = "INSERT INTO reb_leader SET ?";
+  return Promise.all(players.map(player => {
+    new Promise((resolve, reject) => {
+      connection.query(query, parser.reb(player), (error, results) => error ? reject(error) : resolve(results));
+    }).catch(err => console.log(err));
+  }));
+};
+
 module.exports = {
   getEastTeams,
   getWestTeams,
-  insertPPGLeaders
+  insertPPGLeaders,
+  insertAPGLeaders,
+  insertRPGLeaders
 };

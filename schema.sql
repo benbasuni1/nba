@@ -4,6 +4,8 @@ USE nba;
 DROP TABLE IF EXISTS teams;
 DROP TABLE IF EXISTS division;
 DROP TABLE IF EXISTS pts_leader;
+DROP TABLE IF EXISTS ast_leader;
+DROP TABLE IF EXISTS reb_leader;
 
 CREATE TABLE division
 (
@@ -34,6 +36,32 @@ CREATE TABLE pts_leader
   gp          int         NOT NULL,
   pts         int         NOT NULL,
   ppg         float       NOT NULL,
+  PRIMARY KEY (id),
+  UNIQUE (id)
+);
+
+CREATE TABLE ast_leader
+(
+  id          int AUTO_INCREMENT NOT NULL,
+  player_id   int         NOT NULL,
+  playername  varchar(50) NOT NULL,
+  team        varchar(50) NOT NULL,
+  gp          int         NOT NULL,
+  ast         int         NOT NULL,
+  apg         float       NOT NULL,
+  PRIMARY KEY (id),
+  UNIQUE (id)
+);
+
+CREATE TABLE reb_leader
+(
+  id          int AUTO_INCREMENT NOT NULL,
+  player_id   int         NOT NULL,
+  playername  varchar(50) NOT NULL,
+  team        varchar(50) NOT NULL,
+  gp          int         NOT NULL,
+  reb         int         NOT NULL,
+  rpg         float       NOT NULL,
   PRIMARY KEY (id),
   UNIQUE (id)
 );
