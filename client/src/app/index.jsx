@@ -11,14 +11,15 @@ class App extends React.Component {
   }
 
   render() {
+    let item = <Main/>
     return (
       <div id="main-container">
         <NavBar/>
         <Side/>
         <Grid>
-        <Row>
-          <Col mdOffset={3}><Main/></Col>
-        </Row>
+          <Row>
+            <Col mdOffset={3}>{item}</Col>
+          </Row>
         </Grid>
       </div>
     )

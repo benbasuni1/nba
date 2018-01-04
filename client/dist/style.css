@@ -2,6 +2,10 @@ body {
   font-style: 'evaira';
   background: #393996;
 }
+
+.standings {
+  color: white;
+}
 .search-bar {
   margin-right: 10px;
 }

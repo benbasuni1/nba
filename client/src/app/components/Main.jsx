@@ -1,7 +1,5 @@
 import React from 'react';
-import EastTeams from './MainComponents/EastTeams.jsx';
-import WestTeams from './MainComponents/WestTeams.jsx';
-import Stats from './MainComponents/Stats.jsx';
+import Standings from './C_Main/Standings.jsx';
 import {Grid, Col, Row} from 'react-bootstrap';
 
 class Main extends React.Component {
@@ -11,10 +9,10 @@ class Main extends React.Component {
   }
 
   render() {
+    let item = <Standings/>
     return (
-      <div>
-        <EastStandings/>
-        <WestStandings/>
+      <div className="standings">
+        {item}
       </div>
     );
   }
@@ -22,6 +20,3 @@ class Main extends React.Component {
 }
 
 export default Main;
-            {/* <Col md={4}> <EastTeams /> </Col>
-            <Col md={4}> <WestTeams /> </Col>
-            <Col md={4}> <Stats /> </Col> */}
