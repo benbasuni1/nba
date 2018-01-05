@@ -68,8 +68,8 @@ a {
 
 .team:hover {
   cursor: pointer;
-  color: #061922;
-  transform: scale(1.1);
+  color: rgb(13, 139, 68);
+  transform: scale(1.2);
 }
 
 .LAL {

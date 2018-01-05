@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
-import Standings from './C_Main/Standings.jsx';
+import Standings from './C_Standings/Standings.jsx';
+import Teams from './C_Teams/Teams.jsx'; 
 import {Grid, Col, Row} from 'react-bootstrap';
 
 class Main extends React.Component {
@@ -8,8 +9,15 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
   }
+
   render() {
-    let item = <Standings/>
+    let pageType = this.props.pageType;
+    let item;
+    if (pageType === 'standings')
+      item = <Standings changePageType={this.props.changePageType}/>
+    else if (pageType === 'teams')
+      item = <Teams changePageType={this.props.changePageType}/>
+
     return (
       <div className="standings">
         {item}
