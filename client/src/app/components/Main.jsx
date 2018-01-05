@@ -5,7 +5,6 @@ import Teams from './C_Teams/Teams.jsx';
 import {Grid, Col, Row} from 'react-bootstrap';
 
 class Main extends React.Component {
-
   constructor(props) {
     super(props);
   }

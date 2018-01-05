@@ -1,7 +1,7 @@
 .radar-text {
   text-align: left !important;
-  color: black;
   font-size: 16px;
+  color: black;
   margin: 10px;
   width: 120%;
 }
@@ -99,7 +99,7 @@ a {
 }
 
 .boston-celtics {
-  background: #008348;
+  background: #008348 !important;
   color: #061922;
 }
 
