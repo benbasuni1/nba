@@ -1,5 +1,5 @@
 const sqlInteraction = require('../db');
-const nbaInteraction = require('../lib/nbaAPI.js');
+const nbaAPICall = require('../lib/nbaAPI.js');
 const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
@@ -21,14 +21,14 @@ app.get('/westteams', (req, res) => {
 });
 
 app.get('/standings', (req, res) => {
-  nbaInteraction.getTeamStandings()
-  .then(data => res.json(data.data.standing))
+  sqlInteraction.getTeamStandings()
+  .then(data => res.json(data))
   .catch(err => res.json(err));
 });
 
 app.get('/teamstats', (req, res) => {
-  nbaInteraction.getTeamStandings()
-  .then(data => res.json(data.data.standing))
+  sqlInteraction.getTeamStats()
+  .then(data => res.json(data))
   .catch(err => res.json(err));
 });
 
@@ -36,7 +36,7 @@ app.get('/teamstats', (req, res) => {
 == Leaders ==
 ========== */
 app.get('/leagueleaders/pts', (req, res) => {
-  nbaInteraction.getPTSLeaders()
+  nbaAPICall.getPTSLeaders()
   .then(data => {
     var players = data.data.resultSet.rowSet;
     sqlInteraction.insertPPGLeaders(players);
@@ -44,7 +44,7 @@ app.get('/leagueleaders/pts', (req, res) => {
 });
 
 app.get('/insert/standings', (req, res) => {
-  nbaInteraction.getTeamStandings()
+  nbaAPICall.getTeamStandings()
   .then(data => {
     var teams = data.data.standing;
     sqlInteraction.insertTeamStandings(teams);
@@ -55,7 +55,7 @@ app.get('/insert/standings', (req, res) => {
 app.get('/insert/team_stats', (req, res) => {
   sqlInteraction.getAllTeamIDs()
   .then(teamIds => {
-    return nbaInteraction.getTeamStats(teamIds);
+    return nbaAPICall.getTeamStats(teamIds);
   })
   .then(data => {
     var teamStats = data.data.team_stats;
@@ -66,7 +66,7 @@ app.get('/insert/team_stats', (req, res) => {
 /* ============================================================ */
 
 app.get('/leagueleaders/ast', (req, res) => {
-  nbaInteraction.getASTLeaders()
+  nbaAPICall.getASTLeaders()
   .then(data => {
     var players = data.data.resultSet.rowSet;
     sqlInteraction.insertAPGLeaders(players);
@@ -74,7 +74,7 @@ app.get('/leagueleaders/ast', (req, res) => {
 });
 
 app.get('/leagueleaders/reb', (req, res) => {
-  nbaInteraction.getREBLeaders()
+  nbaAPICall.getREBLeaders()
   .then(data => {
     var players = data.data.resultSet.rowSet;
     sqlInteraction.insertRPGLeaders(players);

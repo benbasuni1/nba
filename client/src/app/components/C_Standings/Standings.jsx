@@ -23,7 +23,7 @@ class Standings extends React.Component {
     this.getTeams = this.getTeams.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.getTeams();
   }
 
@@ -31,6 +31,7 @@ class Standings extends React.Component {
     return axios.get('/standings')
     .then(data => {
       var teams = parser.eastAndWest(data.data);
+      console.log(teams);
       return teams;
     })
     .then(teams => {
@@ -38,7 +39,8 @@ class Standings extends React.Component {
         eastTeams: teams.east,
         westTeams: teams.west
       });
-    });
+    })
+    .catch(err => console.log(err));
   }
 
   render() {

@@ -6,8 +6,6 @@ class Teams extends React.Component {
     console.log(window.location.pathname);
   }
 
-  getData() {
-  }
 
   render() {
     return (
