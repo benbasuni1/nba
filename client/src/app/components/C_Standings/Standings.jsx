@@ -4,14 +4,6 @@ import parser from '../../../../../lib/parser.js';
 import Team from './Team.jsx';
 import {Grid, Col, Row} from 'react-bootstrap';
 
-var floatLeft = {
-  float: 'left'
-};
-
-var floatRight = {
-  float: 'right'
-};
-
 class Standings extends React.Component {
   constructor(props) {
     super(props);
@@ -31,7 +23,6 @@ class Standings extends React.Component {
     return axios.get('/standings')
     .then(data => {
       var teams = parser.eastAndWest(data.data);
-      console.log(teams);
       return teams;
     })
     .then(teams => {
@@ -48,21 +39,11 @@ class Standings extends React.Component {
         <Grid>
             <Row>
                 <Col mdOffset={1} md={3}>
-                  <h2 className="east-standings">East</h2>
-                  <div>
-                    <span >Team Name</span>
-                    <span >Win %</span>
-                    <span >W-L</span>
-                  </div>
+                  <h2 className="east-standings">Eastern Conference</h2>
                   {this.state.eastTeams.map(team => <Team changeToTeams={this.props.changeToTeams} key={team.team_id} team={team}/>)}
                 </Col>
                 <Col mdOffset={1} md={3}>
-                  <h2 className="west-standings">West</h2>
-                  <div>
-                    <span >Team Name</span>
-                    <span >Win %</span>
-                    <span >W-L</span>
-                  </div>
+                  <h2 className="west-standings">Western Conference</h2>
                   {this.state.westTeams.map(team => <Team changeToTeams={this.props.changeToTeams} key={team.team_id} team={team}/>)}
                 </Col>
             </Row>

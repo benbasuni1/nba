@@ -13,10 +13,14 @@ class Main extends React.Component {
   render() {
     let pageType = this.props.pageType;
     let item;
-    if (pageType === 'standings')
+    if (pageType === 'standings') {
       item = <Standings changeToTeams={this.props.changeToTeams}/>
-    else if (pageType === 'teams')
+      document.body.style.backgroundColor = 'currentColor';
+    }
+    else if (pageType === 'teams') {
       item = <Teams changeToTeams={this.props.changeToTeams}/>
+      document.body.style.backgroundColor = 'white';
+    }
 
     return (
       <div className="standings">

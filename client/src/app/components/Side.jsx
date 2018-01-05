@@ -1,6 +1,6 @@
 import React from 'react';
 import {stack as Sidebar} from 'react-burger-menu';
-import {NavDropdown, MenuItem} from 'react-bootstrap';
+import {NavDropdown, MenuItem, Image} from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 
 class Side extends React.Component {
@@ -17,13 +17,7 @@ class Side extends React.Component {
           <a className="side-item">Players</a>
           <a className="side-item">Stats</a>
           <a className="side-item">Graphs</a>
-          <NavDropdown id="nav-dropdown" className="side-item" eventKey={3} title="Schedule">
-            <MenuItem eventKey={3.1}>Today</MenuItem>
-            <MenuItem eventKey={3.2}>Weekly</MenuItem>
-            <MenuItem eventKey={3.3}>Monthly</MenuItem>
-            <MenuItem divider />
-            <MenuItem eventKey={3.4}>By Team</MenuItem>
-          </NavDropdown>
+          <a className="side-item">Schedule</a>
         </Sidebar>
       </Router>
     );
