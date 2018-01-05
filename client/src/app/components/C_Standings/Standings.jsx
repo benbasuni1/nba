@@ -40,8 +40,9 @@ class Standings extends React.Component {
             <Row>
                 <Col mdOffset={1} md={3}>
                   <h2 className="east-standings">Eastern Conference</h2>
-                  {this.state.eastTeams.map(team => <Team changeToStats={this.props.changeToStats} key={team.team_id} team={team}/>)}
+                  {this.state.eastTeams.map(team => <Team changePageType={this.props.changePageType} key={team.team_id} team={team}/>)}
                 </Col>
+                
                 <Col mdOffset={1} md={3}>
                   <h2 className="west-standings">Western Conference</h2>
                   {this.state.westTeams.map(team => <Team changeToStats={this.props.changeToStats} key={team.team_id} team={team}/>)}

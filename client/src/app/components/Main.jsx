@@ -14,7 +14,8 @@ class Main extends React.Component {
     let pageType = this.props.pageType;
     let item;
     if (pageType === 'standings') {
-      item = <Standings changeToStats={this.props.changeToStats}/>
+      // item = <Standings changePageType={this.props.changePageType} changeToStats={this.props.changeToStats}/>
+      item = <Standings changePageType={this.props.changePageType}/>
       document.body.style.backgroundImage = `url(${backgroundImg})`;
     }
     else if (pageType === 'statistics') {
@@ -28,6 +29,7 @@ class Main extends React.Component {
       </div>
     );
   }
+
 
 }
 

@@ -13,19 +13,17 @@ class App extends React.Component {
       pageType: 'standings'
     };
 
-    this.changeToStats = this.changeToStats.bind(this);
-    this.changeToHome = this.changeToHome.bind(this);
+    this.changePageType = this.changePageType.bind(this);
   }
 
-  changeToStats() { this.setState({ pageType: 'statistics' }); }
-  changeToHome() { this.setState({ pageType: 'standings'}); }
+  changePageType(type) { this.setState({ pageType: type });}
 
   render() {
-    let item = <Main changeToStats={this.changeToStats} pageType={this.state.pageType}/>
+    let item = <Main changePageType={this.changePageType} changeToStats={this.changeToStats} pageType={this.state.pageType}/>
     return (
         <div id="main-container">
-          <NavBar changeToStats={this.changeToTeams} changeToHome={this.changeToHome} />
-          <Side changeToHome={this.changeToHome} />
+          <NavBar changePageType={this.changePageType}/>
+          <Side changePageType={this.changePageType} />
           <Grid>
             <Row>
               <Col mdOffset={3}>{item}</Col>

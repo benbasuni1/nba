@@ -13,7 +13,7 @@ class Side extends React.Component {
     return (
       <Router>
         <Sidebar width={280} isOpen={true} noOverlay className="sidebar">
-          <Link to="/"><span className="side-item" onClick={this.props.changeToHome}>Standings</span></Link>
+          <Link to="/"><span className="side-item" onClick={() => this.props.changePageType('standings')}>Standings</span></Link>
           <a className="side-item">Teams</a>
           <a className="side-item">Players</a>
           <a className="side-item">Stats</a>

@@ -1,5 +1,6 @@
 import React from 'react';
 import {FormControl, FormGroup, ControlLabel, Nav, Navbar, NavItem, Button, Image, ButtonToolbar, ToggleButtonGroup, ToggleButton} from 'react-bootstrap';
+import {Router, Link, BrowserRouter} from 'react-router-dom';
 
 class NavBarComponent extends React.Component {
 
@@ -24,11 +25,11 @@ class NavBarComponent extends React.Component {
 
   render() {
     return (
-    <div>
+      <BrowserRouter>
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            <span onClick={this.props.changeToHome}>NBA</span>
+            <Link to="/"><span onClick={() => this.props.changePageType('standings')}>NBA</span></Link>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
@@ -48,7 +49,7 @@ class NavBarComponent extends React.Component {
           </ButtonToolbar>
         </Navbar.Collapse>
       </Navbar>
-    </div>
+      </BrowserRouter>
     );
   }
 
