@@ -89,7 +89,6 @@ class Statistics extends React.Component {
               <div className="radar-team-name">{this.state.data.team_name}</div>
               <div className="radar-team-name">({this.state.data.won} -{this.state.data.lost})</div>
             </div>
-            <img src={require('../../../assets/boston-celtics.png')}/>
           </Col>
         </Row>
       </Grid>

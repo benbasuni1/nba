@@ -1,3 +1,13 @@
+.team-individual {
+  color: white;
+  text-align: right;
+  font-size: 16px;
+}
+
+.team-individual:hover {
+  transform: scale(1.1);
+}
+
 .radar-text {
   text-align: left !important;
   font-size: 16px;

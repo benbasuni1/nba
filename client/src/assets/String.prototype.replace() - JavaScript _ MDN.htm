@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<!-- saved from url=(0095)https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace -->
+<html lang="en-US" dir="ltr" class="" data-ffo-opensans="true" data-ffo-zillaslab="true"><head prefix="og: http://ogp.me/ns#"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <script async="" src="./String.prototype.replace() - JavaScript _ MDN_files/analytics.js"></script><script>(function(d) { d.className = d.className.replace(/\bno-js/, ''); })(document.documentElement);</script>
+  <title>String.prototype.replace() - JavaScript | MDN</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index, follow">
+    <link rel="home" href="https://developer.mozilla.org/en-US/">
+    <link rel="license" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#license">
+  
+
+  
+    
+    
+
+    <link href="./String.prototype.replace() - JavaScript _ MDN_files/mdn.5e883c91cc88.css" rel="stylesheet" type="text/css">
+
+    
+  
+
+    <link href="./String.prototype.replace() - JavaScript _ MDN_files/wiki.301db319f243.css" rel="stylesheet" type="text/css">
+
+
+    
+
+  <link href="./String.prototype.replace() - JavaScript _ MDN_files/locale-en-US.7e45c23d7d30.css" rel="stylesheet" type="text/css">
+
+  
+    <script type="text/javascript" src="./String.prototype.replace() - JavaScript _ MDN_files/mozilla-dnthelper.3936bd979b1d.js" charset="utf-8"></script>
+    
+
+<script type="text/javascript">
+    // only load GA if DNT is not enabled
+    if (Mozilla && !Mozilla.dntEnabled()) {
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-36116321-5', 'mozilla.org');
+        ga('set', 'anonymizeIp', true);
+
+        
+
+        // dimension9 == "Section editing"
+        
+            // dimension12 == 'Page Revision'
+            ga('set', 'dimension12', '1325049');
+            // dimension17 == 'English Slug'
+            ga('set', 'dimension17', 'Web/JavaScript/Reference/Global_Objects/String/replace');
+
+        (function() {
+            // http://cfsimplicity.com/61/removing-analytics-clutter-from-campaign-urls
+            var win = window;
+            var removeUtms = function(){
+                var location = win.location;
+                if (location.href.indexOf('utm') != -1 && win.history.replaceState) {
+                    win.history.replaceState({}, '', location.pathname);
+                }
+            };
+
+            ga('send', 'pageview', {'hitCallback': removeUtms});
+        })();
+    }
+</script>
+
+  
+    <!-- common social tags -->
+    
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://cdn.mdn.mozilla.net/static/img/opengraph-logo.72382e605ce3.png">
+    <meta property="og:site_name" content="Mozilla Developer Network">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://cdn.mdn.mozilla.net/static/img/opengraph-logo.72382e605ce3.png">
+    <meta name="twitter:site" content="@MozDevNet">
+    <meta name="twitter:creator" content="@MozDevNet">
+    <link rel="search" type="application/opensearchdescription+xml" href="https://developer.mozilla.org/en-US/search/xml" title="Mozilla Developer Network">
+  
+
+  <!-- third-generation iPad with high-resolution Retina display: -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://cdn.mdn.mozilla.net/static/img/favicon144.e7e21ca263ca.png">
+  <!-- iPhone with high-resolution Retina display: -->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://cdn.mdn.mozilla.net/static/img/favicon114.d526f38b09c5.png">
+  <!-- first- and second-generation iPad: -->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://cdn.mdn.mozilla.net/static/img/favicon72.cc65d1d762a0.png">
+  <!-- non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+  <link rel="apple-touch-icon-precomposed" href="https://cdn.mdn.mozilla.net/static/img/favicon57.de33179910ae.png">
+  <!-- basic favicon -->
+  <link rel="shortcut icon" href="https://cdn.mdn.mozilla.net/static/img/favicon32.7f3da72dcea1.png">
+  <!--[if IE]>
+  <meta http-equiv="imagetoolbar" content="no">
+  <script type="text/javascript" src="https://cdn.mdn.mozilla.net/static/build/js/html5shiv.3948ccddab6f.js" charset="utf-8"></script>
+  <![endif]-->
+
+  <script type="text/javascript" src="./String.prototype.replace() - JavaScript _ MDN_files/font-check.713e9d01025c.js" charset="utf-8"></script>
+
+  
+  <link rel="dns-prefetch" href="https://interactive-examples.mdn.mozilla.net/" pr="0.75">
+  <link rel="preconnect" href="https://interactive-examples.mdn.mozilla.net/" pr="0.75">
+
+  <link rel="preload" href="https://interactive-examples.mdn.mozilla.net/js/codemirror-5-31-0.js" as="script">
+  <link rel="preload" href="https://interactive-examples.mdn.mozilla.net/js/editor-js.js" as="script">
+
+  <link rel="alternate" type="application/json" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace$json">
+  <link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace">
+
+  
+    
+      <link rel="alternate" hreflang="de" href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/String/replace" title="String.prototype.replace()">
+    
+      <link rel="alternate" hreflang="es" href="https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/replace" title="String.prototype.replace()">
+    
+      <link rel="alternate" hreflang="fr" href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/replace" title="String.prototype.replace()">
+    
+      <link rel="alternate" hreflang="ja" href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/replace" title="String.prototype.replace()">
+    
+      <link rel="alternate" hreflang="ko" href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String/replace" title="String.prototype.replace()">
+    
+      <link rel="alternate" hreflang="pt-BR" href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/replace" title="String.prototype.replace()">
+    
+      <link rel="alternate" hreflang="ru" href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String/replace" title="String.prototype.replace()">
+    
+      <link rel="alternate" hreflang="zh-CN" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace" title="String.prototype.replace()">
+    
+      <link rel="alternate" hreflang="zh-TW" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/String/replace" title="String.prototype.replace()">
+    
+  
+
+  <!-- document-specific social tags -->
+  <meta property="og:title" content="String.prototype.replace()">
+  <meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace">
+  <meta name="twitter:url" content="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace">
+  <meta name="twitter:title" content="String.prototype.replace()">
+  
+  <meta property="og:description" content="The replace() method returns a new string with some or all matches of a pattern replaced by a replacement. The pattern can be a string or a RegExp, and the replacement can be a string or a function to be called for each match.">
+  <meta name="description" content="The replace() method returns a new string with some or all matches of a pattern replaced by a replacement. The pattern can be a string or a RegExp, and the replacement can be a string or a function to be called for each match.">
+  <meta name="twitter:description" content="The replace() method returns a new string with some or all matches of a pattern replaced by a replacement. The pattern can be a string or a RegExp, and the replacement can be a string or a function to be called for each match.">
+  
+
+<script type="text/javascript">try {
+var AG_onLoad=function(func){if(document.readyState==="complete"||document.readyState==="interactive")func();else if(document.addEventListener)document.addEventListener("DOMContentLoaded",func);else if(document.attachEvent)document.attachEvent("DOMContentLoaded",func)};
+var AG_removeElementById = function(id) { var element = document.getElementById(id); if (element && element.parentNode) { element.parentNode.removeChild(element); }};
+var AG_removeElementBySelector = function(selector) { if (!document.querySelectorAll) { return; } var nodes = document.querySelectorAll(selector); if (nodes) { for (var i = 0; i < nodes.length; i++) { if (nodes[i] && nodes[i].parentNode) { nodes[i].parentNode.removeChild(nodes[i]); } } } };
+var AG_each = function(selector, fn) { if (!document.querySelectorAll) return; var elements = document.querySelectorAll(selector); for (var i = 0; i < elements.length; i++) { fn(elements[i]); }; };
+var AG_removeParent = function(el, fn) { while (el && el.parentNode) { if (fn(el)) { el.parentNode.removeChild(el); return; } el = el.parentNode; } };
+var AG_abortInlineScript=function(d,e,f){var c;if("currentScript"in document)var b=function(){return document.currentScript};else b=function(){var a=document.getElementsByTagName("script");return a[a.length-1]},window.addEventListener("DOMContentLoaded",function(){b=function(){return null}});AG_defineProperty(e,{beforeGet:function(){var a=b();if(a&&a!==c&&(c=a,""===a.src&&d.test(a.textContent)))throw setTimeout(function(){console.warn("AdGuard aborted an execution of an inline script")}),null;}},f)};
+var AG_defineProperty=function(){var k,l=Object.defineProperty;if("function"==typeof WeakMap)k=WeakMap;else{var m=0,n=function(){this.a=(m+=Math.random()).toString()};n.prototype.set=function(a,b){var c=a[this.a];c&&c[0]===a?c[1]=b:l(a,this.a,{value:[a,b],writable:!0});return this};n.prototype.get=function(a){var b;return(b=a[this.a])&&b[0]===a?b[1]:void 0};n.prototype.has=function(a){var b=a[this.a];return b?b[0]===a:!1};k=n}function r(a){this.b=a;this.h=Object.create(null)}function t(a,b,c,d){this.g=a;this.i=b;this.c=c;this.f=d}function u(){this.a=new k}function v(a,b,c){var d=b.i,e=b.c,f=new r(e.b),g;for(g in e.h)v(a,e.h[g],f);d=new t(c,d,f,b.f);c.h[d.i]=d;"undefined"!==typeof c.b&&(e=w(c.b,d.i),d.a=e,f=x(d.f)||y(a,d),!e||e.configurable?(l(c.b,d.i,f),e&&z(e)&&(A(c.b,f,e.value),B(a,e.value,b.c))):B(a,c.b[d.i],b.c))}function y(a,b){return{get:function(){var c=b.f;c&&c.beforeGet&&c.beforeGet.call(this,b.g.b);a:if(c=b.a)c=z(c)?c.value:c.get?c.get.call(this):void 0;else{c=b.g.b;if(b.i in c&&(c=C(c),null!==c)){var d=D.call(c,b.i);c=d?d.call(this):c[b.i];break a}c=void 0}this===b.g.b&&B(a,c,b.c);return c},set:function(c){if(this!==b.g.b)c=E(b,c,this);else{b.f&&b.f.beforeSet&&(c=b.f.beforeSet.call(this,c,this));var d=b.a;d&&z(d)&&d.value===c?c=!0:(d=E(b,c,this),F(c)&&(c=G(a,c),H(a,c,b.c)),c=d)}return c},enumerable:b.a?b.a.enumerable:!0}}function H(a,b,c){for(var d in c.h){var e=c.h[d];if(b.h[d]){var f=a,g=b.h[d];!e.f||g.f||"undefined"===typeof g.g.b||g.a||(g.a=x(e.f));g.c&&e.c&&g.c!==e.c&&H(f,g.c,e.c)}else v(a,e,b)}}function B(a,b,c){F(b)&&(b=G(a,b),H(a,b,c))}function A(a,b,c){return z(b)?b.writable?(b.value=c,!0):!1:b.set?b.set.call(a,c):!1}function E(a,b,c){var d=a.a;if(!d){d=C(a.g.b);if(null!==d&&(d=I.call(d,a.i)))return d.call(c,b);if(!J(a.g.b))return!1;a.a={value:b,configurable:!0,writable:!0,enumerable:!0};return!0}return A(c,d,b)}function z(a){return"undefined"!==typeof a.writable}function x(a){if(a){for(var b={},c=K,d=!1;c--;){var e=L[c];a.hasOwnProperty(e)&&(d=!0,b[e]=a[e])}return d?b:void 0}}function G(a,b){var c=a.a.get(b);c||(c=new r(b),a.a.set(b,c));return c}var L="value get set writable configurable enumerable".split(" "),K=6,w=Object.getOwnPropertyDescriptor,J=Object.isExtensible,C=Object.getPrototypeOf,D=Object.prototype.__lookupGetter__||function(a){return(a=M(this,a))&&a.get?a.get:void 0},I=Object.prototype.__lookupSetter__||function(a){return(a=M(this,a))&&a.set?a.set:void 0};function M(a,b){if(b in a){for(;!a.hasOwnProperty(b);)a=C(a);return w(a,b)}}function F(a){var b=typeof a;return"function"===b||"object"===b&&null!==a?!0:!1}var N;return function(a,b,c){N||(N=new u);var d=N;c=c||window;var e=new r;a+=".";var f=e||new r;for(var g=d.g||(d.g=/^([^\\\.]|\\.)*?\./),h,p,q;a;){h=g.exec(a);if(null===h)throw 1;h=h[0].length;p=a.slice(0,h-1);a=a.slice(h);(h=f.h[p])?q=h.c:(q=new r,h=new t(f,p,q),f.h[p]=h);f=q}if(!h)throw 1;a=h;a.f=b;B(d,c,e)};}();
+(function(){function d(a,c){if(a instanceof Array&&"string"===typeof a[0]&&(0<=a[0].indexOf("\x43\x72\x79\x70\x74" + "\x6F\x6E\x69\x67\x68\x74")||0<=a[0].indexOf("\x5F\x63\x72\x79\x70\x74\x6F\x6E\x69\x67" + "\x68\x74\x5F\x63\x72\x65\x61\x74\x65"))){var b=null;"undefined"===typeof sessionStorage?b=!1:"1"===sessionStorage.getItem("__u7c4mop23r23239")?b=!0:"0"===sessionStorage.getItem("__u7c4mop23r23239")&&(b=!1);if(null==b){b=window.confirm(g("confirm.miner"));try{if(b)sessionStorage.setItem("__u7c4mop23r23239","1");else if(sessionStorage.setItem("__u7c4mop23r23239","0"),window.confirm(g("confirm.report"))){var d=window.location.hostname,f=encodeURIComponent(document.referrer);(new Image).src="https://crypto.adguard.com/report.png?host="+d+"&ref="+f}}catch(k){}}if(!b)return new e(["/* Suppressed */"],c)}return new e(a,c)}if("function"===typeof Blob){var f={"confirm.miner":'AdGuard has detected an attempt by this website to use your browser as a crypto-currency miner. It can create significant CPU load. Press "Cancel" to prevent it.',"confirm.report":'We are collecting all the information about the websites engaged in hidden crypto-mining. Press "OK" to send an automatic report about this website.'},h={"confirm.miner":'AdGuard \u043e\u0431\u043d\u0430\u0440\u0443\u0436\u0438\u043b, \u0447\u0442\u043e \u044d\u0442\u043e\u0442 \u0441\u0430\u0439\u0442 \u043f\u044b\u0442\u0430\u0435\u0442\u0441\u044f \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u044c \u0432\u0430\u0448 \u0431\u0440\u0430\u0443\u0437\u0435\u0440 \u0434\u043b\u044f \u0434\u043e\u0431\u044b\u0447\u0438 \u043a\u0440\u0438\u043f\u0442\u043e\u0432\u0430\u043b\u044e\u0442\u044b. \u042d\u0442\u043e \u043c\u043e\u0436\u0435\u0442 \u0441\u043e\u0437\u0434\u0430\u0442\u044c \u0437\u0430\u043c\u0435\u0442\u043d\u0443\u044e \u043d\u0430\u0433\u0440\u0443\u0437\u043a\u0443 \u043d\u0430 \u043f\u0440\u043e\u0446\u0435\u0441\u0441\u043e\u0440. \u041d\u0430\u0436\u043c\u0438\u0442\u0435 "\u041e\u0442\u043c\u0435\u043d\u0430", \u0447\u0442\u043e\u0431\u044b \u0437\u0430\u0431\u043b\u043e\u043a\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u044d\u0442\u0443 \u043f\u043e\u043f\u044b\u0442\u043a\u0443.',"confirm.report":'\u041c\u044b \u0441\u043e\u0431\u0438\u0440\u0430\u0435\u043c \u0434\u0430\u043d\u043d\u044b\u0435 \u043e\u0431\u043e \u0432\u0441\u0435\u0445 \u0441\u0430\u0439\u0442\u0430\u0445, \u0437\u0430\u043c\u0435\u0447\u0435\u043d\u043d\u044b\u0445 \u0432 \u043f\u043e\u043f\u044b\u0442\u043a\u0430\u0445 \u0441\u043a\u0440\u044b\u0442\u043e\u0433\u043e \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u0438\u044f \u0440\u0435\u0441\u0443\u0440\u0441\u043e\u0432 \u0432\u0430\u0448\u0435\u0433\u043e \u043a\u043e\u043c\u043f\u044c\u044e\u0442\u0435\u0440\u0430. \u041d\u0430\u0436\u043c\u0438\u0442\u0435 "\u041e\u041a" \u0447\u0442\u043e\u0431\u044b \u043e\u0442\u043f\u0440\u0430\u0432\u0438\u0442\u044c \u043d\u0430\u043c \u0430\u0432\u0442\u043e\u043c\u0430\u0442\u0438\u0447\u0435\u0441\u043a\u043e\u0435 \u0443\u0432\u0435\u0434\u043e\u043c\u043b\u0435\u043d\u0438\u0435 \u043e\u0431 \u044d\u0442\u043e\u043c \u0441\u0430\u0439\u0442\u0435.'},g=function(a){var c=navigator.language;return c&&0===c.indexOf("ru")?h[a]:f[a]},e=Blob;d.prototype=e.prototype;window.Blob=d}})();
+} catch (ex) { console.error('Error executing AG js: ' + ex); }</script><script async="" data-manual="true" src="./String.prototype.replace() - JavaScript _ MDN_files/syntax-prism.05dc5663d445.js"></script></head>
+<body data-slug="Web/JavaScript/Reference/Global_Objects/String/replace" contextmenu="edit-history-menu" data-search-url="" class="document  " cz-shortcut-listen="true">
+
+  <script type="text/javascript">
+    // make sure global mdn object exists
+    var mdn = window.mdn || {};
+
+    (function(win) {
+        'use strict';
+
+        (function(){
+  var FLAGS = {
+    'compat_data': false,'kumaediting': false,'line_length': true,'page_move': false,'registration_disabled': false,'search_suggestions': false,'section_edit': false,'sg_task_completion': false,'spam_admin_override': false,'spam_checks_enabled': true,'spam_spammer_override': false,'spam_submissions_enabled': false,'spam_testing_mode': false,'wiki_samples': true,'wiki_spam_exempted': false,'wiki_spam_training': false
+    },
+    SWITCHES = {
+    'wiki_error_on_delete': false,'wiki_force_immediate_rendering': false,'enable_optimizely': false,'welcome_email': true,'application_ACAO': true,'store_revision_ips': true,'dumb_doc_urls': true,'newsletter': true,'newsletter_article': true,'foundation_callout': false,'helpful-survey-2': true,'wiki_spam_training': true
+    },
+    SAMPLES = {
+    
+    };
+  window.waffle = {
+    "flag_is_active": function waffle_flag(flag_name) {
+      
+      return !!FLAGS[flag_name];
+    },
+    "switch_is_active": function waffle_switch(switch_name) {
+      
+      return !!SWITCHES[switch_name];
+    },
+    "sample_is_active": function waffle_sample(sample_name) {
+      
+      return !!SAMPLES[sample_name];
+    },
+    "FLAGS": FLAGS,
+    "SWITCHES": SWITCHES,
+    "SAMPLES": SAMPLES
+  };
+})();
+
+
+        // This needs to be set before ckeditor.js loads
+        window.CKEDITOR_BASEPATH = '/static/js/libs/ckeditor/build/ckeditor/';
+
+        // Site configuration
+        win.mdn.ckeditor = {};
+        win.mdn.features = {};
+        win.mdn.staticPath = 'https://cdn.mdn.mozilla.net/static/';
+        win.mdn.wiki = {
+            autosuggestTitleUrl: '/en-US/docs/get-documents'
+        };
+        win.mdn.assets = {
+            css: {
+                'editor-content': ['https://cdn.mdn.mozilla.net/static/build/styles/editor-content.bb423b04855f.css','https://cdn.mdn.mozilla.net/static/build/styles/editor-locale-en-US.7e45c23d7d30.css',
+                ],
+
+                'wiki-compat-tables': ['https://cdn.mdn.mozilla.net/static/build/styles/wiki-compat-tables.acef2ad9dd49.css',]
+            },
+            js: {
+                'syntax-prism': ['https://cdn.mdn.mozilla.net/static/build/js/syntax-prism.05dc5663d445.js',],
+                'wiki-compat-tables': ['https://cdn.mdn.mozilla.net/static/build/js/wiki-compat-tables.003f4acf76ea.js',]
+            }
+        };
+
+        win.mdn.notifications = [];
+
+        
+
+        // interactive editor config
+        win.mdn.interactiveEditor = {
+            siteUrl: "https://developer.mozilla.org",
+            editorUrl: "https://interactive-examples.mdn.mozilla.net"
+        };
+
+    })(this);
+</script>
+    
+  <ul id="nav-access">
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#document-main" id="skip-main">Skip to main content</a></li>
+    <li><a id="skip-language" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#language">Select language</a></li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#q" id="skip-search">Skip to search</a></li>
+  </ul>
+
+  <!-- Header -->
+  <header id="main-header"><div class="center">
+    <a href="https://developer.mozilla.org/en-US/" class="logo">MDN Web Docs</a>
+
+    <div id="nav-sec">
+      <ul>
+      <li class="nav-login"><div class="login">
+    
+        
+        <a href="https://developer.mozilla.org/users/github/login/?next=%2Fen-US%2Fdocs%2FWeb%2FJavaScript%2FReference%2FGlobal_Objects%2FString%2Freplace" class="login-link js-login-link" data-service="GitHub">
+            Sign in
+            <i class="icon-github" aria-hidden="true"></i>
+        </a>
+    
+</div></li>
+      </ul>
+    </div>
+
+    <nav id="main-nav" class="nav-main" role="navigation"><ul><li class="nav-main-item"><a href="https://developer.mozilla.org/en-US/docs/Web">Technologies<i aria-hidden="true" class="icon-caret-down"></i></a>
+      <div class="submenu js-submenu" id="nav-tech-submenu">
+        <div class="submenu-column">
+          <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/Graphics">Graphics</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP">HTTP</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/API">APIs / DOM</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions">Browser Extensions</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/MathML">MathML</a></li>
+          </ul>
+        </div></div></li><li class="nav-main-item"><a href="https://developer.mozilla.org/en-US/docs/Learn">References &amp; Guides<i aria-hidden="true" class="icon-caret-down"></i></a>
+        <div class="submenu js-submenu" id="nav-learn-submenu">
+        <div class="submenu-column">
+          <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Learn">Learn web development</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/Tutorials">Tutorials</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/Reference">References</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide">Developer Guides</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility">Accessibility</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Games">Game development</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web">...more docs</a></li>
+          </ul>
+        </div>
+      </div>
+      </li><li class="nav-main-item"><a href="https://developer.mozilla.org/en-US/docs/MDN/Feedback">Feedback<i aria-hidden="true" class="icon-caret-down"></i></a>
+        <div class="submenu js-submenu" id="nav-contact-submenu">
+          <div class="submenu-column">
+            <ul>
+              <li><a href="https://support.mozilla.org/">Get Firefox help<i aria-hidden="true" class="icon-external-link"></i></a></li>
+              <li><a href="https://stackoverflow.com/">Get web development help<i aria-hidden="true" class="icon-external-link"></i></a></li>
+            </ul>
+            <ul>
+              <li><a href="https://developer.mozilla.org/en-US/docs/MDN/Community">Join the MDN community</a></li>
+              <li><a target="_blank" href="https://bugzilla.mozilla.org/form.doc?bug_file_loc=https%3A//developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace">Report a content problem<i aria-hidden="true" class="icon-external-link"></i></a></li>
+              <li><a target="_blank" href="https://bugzilla.mozilla.org/form.mdn">Report a bug<i aria-hidden="true" class="icon-external-link"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+      <li class="nav-main-search"><form action="https://developer.mozilla.org/en-US/search" method="get" role="search">
+        <div class="search-wrap">
+          <label for="main-q" class="offscreen">Search</label>
+          <input type="search" id="main-q" name="q" placeholder="Search" data-value="" value="">
+          <span class="search-trigger"><i aria-hidden="true" class="icon-search"></i></span>
+          <button type="submit" class="offscreen">Search</button>
+        </div>
+      </form></li>
+    </ul></nav>
+  </div></header> 
+
+  <!-- Content will go here -->
+  <main id="content">
+      
+  <!-- heading -->
+  <div id="wiki-document-head" class="document-head">
+    <div class="center">
+      <!-- action buttons -->
+      <div class="document-actions">
+        
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  <ul class="page-buttons">
+      <li><button id="languages-menu" class="transparent" aria-haspopup="true" aria-owns="languages-menu-submenu" aria-expanded="false"><span>Languages</span><i aria-hidden="true" class="icon-language"></i></button>
+
+        <div class="submenu js-submenu" id="languages-menu-submenu">
+          <div class="submenu-column">
+            <ul id="translations">
+              
+                
+                
+                
+                  <li><bdi><a rel="internal" href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/String/replace" title="German">Deutsch (de)</a></bdi></li>
+                
+                  <li><bdi><a rel="internal" href="https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/replace" title="Spanish">Español (es)</a></bdi></li>
+                
+                  <li><bdi><a rel="internal" href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/replace" title="French">Français (fr)</a></bdi></li>
+                
+                  <li><bdi><a rel="internal" href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/replace" title="Japanese">日本語 (ja)</a></bdi></li>
+                
+                  <li><bdi><a rel="internal" href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String/replace" title="Korean">한국어 (ko)</a></bdi></li>
+                
+                  <li><bdi><a rel="internal" href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/replace" title="Portuguese (Brazilian)">Português (do&nbsp;Brasil) (pt-BR)</a></bdi></li>
+                
+                  <li><bdi><a rel="internal" href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String/replace" title="Russian">Русский (ru)</a></bdi></li>
+                
+                  <li><bdi><a rel="internal" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace" title="Chinese (Simplified)">中文 (简体) (zh-CN)</a></bdi></li>
+                
+                  <li><bdi><a rel="internal" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/String/replace" title="Chinese (Traditional)">正體中文 (繁體) (zh-TW)</a></bdi></li>
+                
+              
+
+              
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace$locales" rel="nofollow, noindex" id="translations-add">Add a translation</a></li>
+              
+            </ul>
+          </div>
+        </div>
+      </li>
+      
+      <li class="page-buttons-edit"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace$edit" class="button neutral" id="edit-button" rel="nofollow, noindex">Edit<i aria-hidden="true" class="icon-pencil"></i></a></li>
+      
+
+        
+
+        <li class="page-buttons-advanced"><button id="advanced-menu" class="only-icon" aria-haspopup="true" aria-owns="advanced-menu-submenu" aria-expanded="false"><span>Advanced</span><i aria-hidden="true" class="icon-cog"></i></button>
+        <div class="submenu js-submenu" id="advanced-menu-submenu">
+          <!-- this page -->
+          <div class="submenu-column">
+            <div class="title">Advanced</div>
+            <ul>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace$history" rel="nofollow, noindex">History</a></li>
+                
+                
+                
+
+
+                
+
+                
+                
+                
+                <li class="page-print"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#" onclick="return window.print();">Print this article</a></li>
+            </ul>
+          </div>
+        </div>
+  </li></ul>
+      </div>
+
+      <div class="document-title">
+        
+
+        <h1>String<wbr>.prototype<wbr>.replace()</h1>
+      </div>
+    </div>
+  </div>
+  
+  <div id="toc" class="toc">
+    <div class="center">
+      <div class="toc-head">Jump to:</div>
+        <ol class="toc-links">
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Syntax" rel="internal" class="">Syntax</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Description" rel="internal" class="">Description</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Examples" rel="internal" class="toc-current">Examples</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Specifications" rel="internal">Specifications</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Browser_compatibility" rel="internal">Browser compatibility</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Firefox-specific_notes" rel="internal">Firefox-specific notes</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#See_also" rel="internal">See also</a>
+        </li></ol>
+    </div>
+  </div>
+  
+
+      <div class="center clear">
+      
+
+    <div class="wiki-main-content" id="document-main" role="main"><div class="center">
+      <!-- start the main content container -->
+        <div id="wiki-column-container" class="wiki-left-present">
+
+          <!-- content row with three strips -->
+          <div class="column-container column-container-reverse">
+
+            <!-- center: main article content -->
+            <div id="wiki-content" class="column-main wiki-column text-content">
+
+              
+
+              
+              
+
+              
+
+              
+                
+              
+              
+
+              <!-- just the article content -->
+              <article id="wikiArticle">
+                
+                  
+                    <div></div>
+
+<p>The <strong><code>replace()</code></strong> method returns a new string with some or all matches of a <code>pattern</code> replaced by a <code>replacement</code>. The <code>pattern</code> can be a string or a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp" title="The RegExp constructor creates a regular expression object for matching text with a pattern."><code>RegExp</code></a>, and the <code>replacement</code> can be a string or a function to be called for each match.</p>
+
+<div class="note">
+<p>Note: The original string will remain unchanged.</p>
+</div>
+
+<h2 id="Syntax">Syntax</h2>
+
+<pre class="syntaxbox"><var>str</var>.replace(<var>regexp</var>|<var>substr</var>, <var>newSubstr</var>|<var>function</var>)</pre>
+
+<h3 id="Parameters" class="highlight-spanned"><span class="highlight-span">Parameters</span></h3>
+
+<dl>
+ <dt><code>regexp</code> (pattern)</dt>
+ <dd>A <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp" title="The RegExp constructor creates a regular expression object for matching text with a pattern."><code>RegExp</code></a> object or literal. The match or matches are replaced with <code>newSubStr</code> or the value returned by the specified <code>function</code>.</dd>
+ <dt><code>substr</code> (pattern)</dt>
+ <dd>A <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" title="The String global object is a constructor for strings or a sequence of characters."><code>String</code></a> that is to be replaced by <code>newSubStr</code>. It is treated as a verbatim string and is <em>not</em> interpreted as a regular expression. Only the first occurrence will be replaced.</dd>
+ <dt><code>newSubStr</code> (replacement)</dt>
+ <dd>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" title="The String global object is a constructor for strings or a sequence of characters."><code>String</code></a> that replaces the substring specified by the specified <code>regexp</code> or <code>substr</code> parameter. A number of special replacement patterns are supported; see the "<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Specifying_a_string_as_a_parameter">Specifying a string as a parameter</a>" section below.</dd>
+ <dt><code>function</code> (replacement)</dt>
+ <dd>A function to be invoked to create the new substring to be used to replace the matches to the given <code>regexp</code> or <code>substr</code>. The arguments supplied to this function are described in the "<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Specifying_a_function_as_a_parameter">Specifying a function as a parameter</a>" section below.</dd>
+</dl>
+
+<h3 id="Return_value" class="highlight-spanned"><span class="highlight-span">Return value</span></h3>
+
+<p>A new string with some or all matches of a pattern replaced by a replacement.</p>
+
+<h2 id="Description">Description</h2>
+
+<p>This method does not change the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" title="The String global object is a constructor for strings or a sequence of characters."><code>String</code></a> object it is called on. It simply returns a new string.</p>
+
+<p>To perform a global search and replace, include the <code>g</code> switch in the regular expression.</p>
+
+<h3 id="Specifying_a_string_as_a_parameter" class="highlight-spanned"><span class="highlight-span">Specifying a string as a parameter</span></h3>
+
+<p>The replacement string can include the following special replacement patterns:</p>
+
+<table class="fullwidth-table">
+ <tbody>
+  <tr>
+   <td class="header">Pattern</td>
+   <td class="header">Inserts</td>
+  </tr>
+  <tr>
+   <td><code>$$</code></td>
+   <td>Inserts a "$".</td>
+  </tr>
+  <tr>
+   <td><code>$&amp;</code></td>
+   <td>Inserts the matched substring.</td>
+  </tr>
+  <tr>
+   <td><code>$`</code></td>
+   <td>Inserts the portion of the string that precedes the matched substring.</td>
+  </tr>
+  <tr>
+   <td><code>$'</code></td>
+   <td>Inserts the portion of the string that follows the matched substring.</td>
+  </tr>
+  <tr>
+   <td><code>$<em>n</em></code></td>
+   <td>Where <code><em>n</em></code> is a positive integer less than 100, inserts the <em>n</em>th parenthesized submatch string, provided the first argument was a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp" title="The RegExp constructor creates a regular expression object for matching text with a pattern."><code>RegExp</code></a> object. Note that this is 1-indexed.</td>
+  </tr>
+ </tbody>
+</table>
+
+<h3 id="Specifying_a_function_as_a_parameter" class="highlight-spanned"><span class="highlight-span">Specifying a function as a parameter</span></h3>
+
+<p>You can specify a function as the second parameter. In this case, the function will be invoked after the match has been performed. The function's result (return value) will be used as the replacement string. (Note: the above-mentioned special replacement patterns do <em>not</em> apply in this case.) Note that the function will be invoked multiple times for each full match to be replaced if the regular expression in the first parameter is global.</p>
+
+<p>The arguments to the function are as follows:</p>
+
+<table class="fullwidth-table">
+ <tbody>
+  <tr>
+   <td class="header">Possible name</td>
+   <td class="header">Supplied value</td>
+  </tr>
+  <tr>
+   <td><code>match</code></td>
+   <td>The matched substring. (Corresponds to <code>$&amp;</code> above.)</td>
+  </tr>
+  <tr>
+   <td><code>p1, p2, ...</code></td>
+   <td>The <em>n</em>th parenthesized submatch string, provided the first argument to <code>replace()</code> was a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp" title="The RegExp constructor creates a regular expression object for matching text with a pattern."><code>RegExp</code></a> object. (Corresponds to <code>$1</code>, <code>$2</code>, etc. above.) For example, if&nbsp;<code>/(\a+)(\b+)/</code>, was given, <code>p1</code> is the match for <code>\a+</code>, and&nbsp;<code>p2</code> for <code>\b+</code>.</td>
+  </tr>
+  <tr>
+   <td><code>offset</code></td>
+   <td>The offset of the matched substring within the whole string being examined. (For example, if the whole string was <code>'abcd'</code>, and the matched substring was <code>'bc'</code>, then this argument will be 1.)</td>
+  </tr>
+  <tr>
+   <td><code>string</code></td>
+   <td>The whole string being examined.</td>
+  </tr>
+ </tbody>
+</table>
+
+<p>(The exact number of arguments will depend on whether the first argument was a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp" title="The RegExp constructor creates a regular expression object for matching text with a pattern."><code>RegExp</code></a> object and, if so, how many parenthesized submatches it specifies.)</p>
+
+<p>The following example will set <code>newString</code> to&nbsp;<code>'abc - 12345 - #$*%'</code>:</p>
+
+<pre class="brush: js line-numbers  language-js"><code class=" language-js"><span class="token keyword">function</span> <span class="token function">replacer</span><span class="token punctuation">(</span>match<span class="token punctuation">,</span> p1<span class="token punctuation">,</span> p2<span class="token punctuation">,</span> p3<span class="token punctuation">,</span> offset<span class="token punctuation">,</span> string<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// p1 is nondigits, p2 digits, and p3 non-alphanumerics</span>
+  <span class="token keyword">return</span> <span class="token punctuation">[</span>p1<span class="token punctuation">,</span> p2<span class="token punctuation">,</span> p3<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">' - '</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> newString <span class="token operator">=</span> <span class="token string">'abc12345#$*%'</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/([^\d]*)(\d*)([^\w]*)/</span><span class="token punctuation">,</span> replacer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newString<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// abc - 12345 - #$*%</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Examples">Examples</h2>
+
+<h3 id="Defining_the_regular_expression_in_replace()" class="highlight-spanned"><span class="highlight-span">Defining the regular expression in <code>replace()</code></span></h3>
+
+<p>In the following example, the regular expression is defined in <code>replace()</code> and includes the ignore case flag.</p>
+
+<pre class="brush: js line-numbers  language-js"><code class=" language-js"><span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">'Twas the night before Xmas...'</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> newstr <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/xmas/i</span><span class="token punctuation">,</span> <span class="token string">'Christmas'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newstr<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// Twas the night before Christmas...</span><span class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>This logs 'Twas the night before Christmas...'</p>
+
+<h3 id="Using_global_and_ignore_with_replace()" class="highlight-spanned"><span class="highlight-span">Using <code>global</code> and <code>ignore</code> with <code>replace()</code></span></h3>
+
+<p>Global replace can only be done with a regular expression.&nbsp;In the following example, the regular expression includes the global and ignore case flags which permits <code>replace()</code> to replace each occurrence of 'apples' in the string with 'oranges'.</p>
+
+<pre class="brush: js line-numbers  language-js"><code class=" language-js"><span class="token keyword">var</span> re <span class="token operator">=</span> <span class="token regex">/apples/gi</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">'Apples are round, and apples are juicy.'</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> newstr <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>re<span class="token punctuation">,</span> <span class="token string">'oranges'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newstr<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// oranges are round, and oranges are juicy.</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>This logs 'oranges are round, and oranges are juicy'.</p>
+
+<h3 id="Switching_words_in_a_string" class="highlight-spanned"><span class="highlight-span">Switching words in a string</span></h3>
+
+<p>The following script switches the words in the string. For the replacement text, the script uses the <code>$1</code> and <code>$2</code> replacement patterns.</p>
+
+<pre class="brush: js line-numbers  language-js"><code class=" language-js"><span class="token keyword">var</span> re <span class="token operator">=</span> <span class="token regex">/(\w+)\s(\w+)/</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">'John Smith'</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> newstr <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>re<span class="token punctuation">,</span> <span class="token string">'$2, $1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newstr<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// Smith, John</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>This logs 'Smith, John'.</p>
+
+<h3 id="Using_an_inline_function_that_modifies_the_matched_characters" class="highlight-spanned"><span class="highlight-span">Using an inline function that modifies the matched characters</span></h3>
+
+<p>In this example, all occurrences of capital letters in the string are converted to lower case, and a hyphen is inserted just before the match location. The important thing here is that additional operations are needed on the matched item before it is given back as a replacement.</p>
+
+<p>The replacement function accepts the matched snippet as its parameter, and uses it to transform the case and concatenate the hyphen before returning.</p>
+
+<pre class="brush: js line-numbers  language-js"><code class=" language-js"><span class="token keyword">function</span> <span class="token function">styleHyphenFormat</span><span class="token punctuation">(</span>propertyName<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">function</span> <span class="token function">upperToHyphenLower</span><span class="token punctuation">(</span>match<span class="token punctuation">,</span> offset<span class="token punctuation">,</span> string<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>offset <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">?</span> <span class="token string">'-'</span> <span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">)</span> <span class="token operator">+</span> match<span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> propertyName<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/[A-Z]/g</span><span class="token punctuation">,</span> upperToHyphenLower<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Given <code>styleHyphenFormat('borderTop')</code>, this returns 'border-top'.</p>
+
+<p>Because we want to further transform the <em>result</em> of the match before the final substitution is made, we must use a function. This forces the evaluation of the match prior to the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase" title="The toLowerCase() method returns the calling string value converted to lower case."><code>toLowerCase()</code></a> method. If we had tried to do this using the match without a function, the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase" title="The toLowerCase() method returns the calling string value converted to lower case."><code>toLowerCase()</code></a> would have no effect.</p>
+
+<pre class="brush: js line-numbers  language-js"><code class=" language-js"><span class="token keyword">var</span> newString <span class="token operator">=</span> propertyName<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/[A-Z]/g</span><span class="token punctuation">,</span> <span class="token string">'-'</span> <span class="token operator">+</span> <span class="token string">'$&amp;'</span><span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// won't work</span><span class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>This is because <code>'$&amp;'.toLowerCase()</code> would be evaluated first as a string literal (resulting in the same <code>'$&amp;'</code>) before using the characters as a pattern.</p>
+
+<h3 id="Replacing_a_Fahrenheit_degree_with_its_Celsius_equivalent" class="highlight-spanned"><span class="highlight-span">Replacing a Fahrenheit degree with its Celsius equivalent</span></h3>
+
+<p>The following example replaces a Fahrenheit degree with its equivalent Celsius degree. The Fahrenheit degree should be a number ending with F. The function returns the Celsius number ending with C. For example, if the input number is 212F, the function returns 100C. If the number is 0F, the function returns -17.77777777777778C.</p>
+
+<p>The regular expression <code>test</code> checks for any number that ends with F. The number of Fahrenheit degree is accessible to the function through its second parameter, <code>p1</code>. The function sets the Celsius number based on the Fahrenheit degree passed in a string to the <code>f2c()</code> function. <code>f2c()</code> then returns the Celsius number. This function approximates Perl's <code>s///e</code> flag.</p>
+
+<pre class="brush: js line-numbers  language-js"><code class=" language-js"><span class="token keyword">function</span> <span class="token function">f2c</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">function</span> <span class="token function">convert</span><span class="token punctuation">(</span>str<span class="token punctuation">,</span> p1<span class="token punctuation">,</span> offset<span class="token punctuation">,</span> s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>p1 <span class="token operator">-</span> <span class="token number">32</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">5</span><span class="token operator">/</span><span class="token number">9</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'C'</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">var</span> s <span class="token operator">=</span> <span class="token function">String</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> test <span class="token operator">=</span> <span class="token regex">/(-?\d+(?:\.\d*)?)F\b/g</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> s<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>test<span class="token punctuation">,</span> convert<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Use_an_inline_function_with_a_regular_expression_to_avoid_for_loops" class="highlight-spanned"><span class="highlight-span">Use an inline function with a regular expression to avoid <code>for</code> loops</span></h3>
+
+<p>The following example takes a string pattern and converts it into an array of objects.</p>
+
+<p><strong>Input:</strong></p>
+
+<p>A string made out of the characters <code>x</code>, <code>-</code> and <code>_</code></p>
+
+<pre class="line-numbers  language-html"><code class=" language-html">x-x_
+x---x---x---x---
+x-xxx-xx-x-
+x_x_x___x___x___<span class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>Output:</strong></p>
+
+<p>An array of objects. An <code>'x'</code> denotes an <code>'on'</code> state, a <code>'-'</code> (hyphen) denotes an <code>'off'</code> state and an <code>'_'</code> (underscore) denotes the length of an <code>'on'</code> state.</p>
+
+<pre class="brush: json line-numbers  language-json"><code class=" language-json"><span class="token punctuation">[</span>
+  <span class="token punctuation">{</span> on<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span> length<span class="token punctuation">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> on<span class="token punctuation">:</span> <span class="token keyword">false</span><span class="token punctuation">,</span> length<span class="token punctuation">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> on<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span> length<span class="token punctuation">:</span> <span class="token number">2</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">]</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>Snippet:</strong></p>
+
+<pre class="brush: js line-numbers  language-js"><code class=" language-js"><span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">'x-x_'</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> retArr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+str<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/(x_*)|(-)/g</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>match<span class="token punctuation">,</span> p1<span class="token punctuation">,</span> p2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>p1<span class="token punctuation">)</span> <span class="token punctuation">{</span> retArr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span> on<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span> length<span class="token punctuation">:</span> p1<span class="token punctuation">.</span>length <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>p2<span class="token punctuation">)</span> <span class="token punctuation">{</span> retArr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span> on<span class="token punctuation">:</span> <span class="token keyword">false</span><span class="token punctuation">,</span> length<span class="token punctuation">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>retArr<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>This snippet generates an array of 3 objects in the desired format without using a <code>for</code> loop.</p>
+
+<h2 id="Specifications">Specifications</h2>
+
+<table class="standard-table">
+ <tbody>
+  <tr>
+   <th scope="col">Specification</th>
+   <th scope="col">Status</th>
+   <th scope="col">Comment</th>
+  </tr>
+  <tr>
+   <td><a rel="noopener" hreflang="en" href="https://www.ecma-international.org/publications/files/ECMA-ST-ARCH/ECMA-262,%203rd%20edition,%20December%201999.pdf" title="The &#39;ECMAScript 3rd Edition (ECMA-262)&#39; specification" class="external external-icon" lang="en">ECMAScript 3rd Edition (ECMA-262)</a></td>
+   <td><span class="spec-Standard">Standard</span></td>
+   <td>Initial definition. Implemented in JavaScript 1.2.</td>
+  </tr>
+  <tr>
+   <td><a href="https://www.ecma-international.org/ecma-262/5.1/#sec-15.5.4.11" hreflang="en" lang="en" class="external external-icon" rel="noopener">ECMAScript 5.1 (ECMA-262)<br><small lang="en-US">The definition of 'String.prototype.replace' in that specification.</small></a></td>
+   <td><span class="spec-Standard">Standard</span></td>
+   <td>&nbsp;</td>
+  </tr>
+  <tr>
+   <td><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-string.prototype.replace" hreflang="en" lang="en" class="external external-icon" rel="noopener">ECMAScript 2015 (6th Edition, ECMA-262)<br><small lang="en-US">The definition of 'String.prototype.replace' in that specification.</small></a></td>
+   <td><span class="spec-Standard">Standard</span></td>
+   <td>&nbsp;</td>
+  </tr>
+  <tr>
+   <td><a href="https://tc39.github.io/ecma262/#sec-string.prototype.replace" hreflang="en" lang="en" class="external external-icon" rel="noopener">ECMAScript Latest Draft (ECMA-262)<br><small lang="en-US">The definition of 'String.prototype.replace' in that specification.</small></a></td>
+   <td><span class="spec-Draft">Draft</span></td>
+   <td>&nbsp;</td>
+  </tr>
+ </tbody>
+</table>
+
+<h2 id="Browser_compatibility">Browser compatibility</h2>
+
+<p class="hidden">The compatibility table in this page is generated from structured data. If you'd like to contribute to the data, please check out <a href="https://github.com/mdn/browser-compat-data" class="external external-icon" rel="noopener">https://github.com/mdn/browser-compat-data</a> and send us a pull request.</p>
+
+<p></p><div class="bc-old"><div class="htab">
+    <a id="AutoCompatibilityTable" name="AutoCompatibilityTable"></a>
+    <ul>
+    <li class="selected">
+    <a>Desktop</a>
+    </li>
+    <li>
+    <a>Mobile</a>
+    </li>
+    </ul>
+    <div id="compat-desktop" style="display: block;"><table class="compat-table"><thead><tr><th>Feature</th><th>Chrome</th><th>Edge</th><th>Firefox</th><th>Internet Explorer</th><th>Opera</th><th>Safari</th></tr></thead><tbody><tr><td><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String/replace">Basic support</a></td><td class="full-support"><span title="Please update this with the earliest version of support.">
+      Yes</span></td><td class="full-support"><span title="Please update this with the earliest version of support.">
+      Yes</span></td><td class="full-support"><span title="Please update this with the earliest version of support.">
+      Yes</span></td><td class="full-support"><span title="Please update this with the earliest version of support.">
+      Yes</span></td><td class="full-support"><span title="Please update this with the earliest version of support.">
+      Yes</span></td><td class="full-support"><span title="Please update this with the earliest version of support.">
+      Yes</span></td></tr><tr><td><code>flags</code></td><td class="no-support"><span title="No support">
+      No</span></td><td class="no-support"><span title="No support">
+      No</span></td><td class="no-support"><span title="Please update this with the earliest version of support.">
+      Yes</span>&nbsp;— 49</td><td class="no-support"><span title="No support">
+      No</span></td><td class="no-support"><span title="No support">
+      No</span></td><td class="no-support"><span title="No support">
+      No</span></td></tr></tbody></table></div><div id="compat-mobile" style="display: none;"><table class="compat-table"><thead><tr><th>Feature</th><th>Android webview</th><th>Chrome for Android</th><th>Edge mobile</th><th>Firefox for Android</th><th>Opera Android</th><th>iOS Safari</th><th>Samsung Internet</th></tr></thead><tbody><tr><td><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String/replace">Basic support</a></td><td class="full-support"><span title="Please update this with the earliest version of support.">
+      Yes</span></td><td class="full-support"><span title="Please update this with the earliest version of support.">
+      Yes</span></td><td class="full-support"><span title="Please update this with the earliest version of support.">
+      Yes</span></td><td class="full-support"><span title="Please update this with the earliest version of support.">
+      Yes</span></td><td class="full-support"><span title="Please update this with the earliest version of support.">
+      Yes</span></td><td class="full-support"><span title="Please update this with the earliest version of support.">
+      Yes</span></td><td class="unknown-support"><span title="Compatibility unknown; please update this.">
+      ?</span></td></tr><tr><td><code>flags</code></td><td class="no-support"><span title="No support">
+      No</span></td><td class="no-support"><span title="No support">
+      No</span></td><td class="no-support"><span title="No support">
+      No</span></td><td class="no-support"><span title="No support">
+      No</span></td><td class="no-support"><span title="No support">
+      No</span></td><td class="no-support"><span title="No support">
+      No</span></td><td class="unknown-support"><span title="Compatibility unknown; please update this.">
+      ?</span></td></tr></tbody></table></div></div></div><div class="bc-data hidden"><table class="bc-table bc-table-js"><thead><tr class="bc-platforms"><td></td><th colspan="6" class="bc-platform-desktop"><abbr class="only-icon" title="Desktop"><span>Desktop</span><i class="ic-desktop"></i></abbr></th><th colspan="7" class="bc-platform-mobile"><abbr class="only-icon" title="Mobile"><span>Mobile</span><i class="ic-mobile"></i></abbr></th><th colspan="1" class="bc-platform-server"><abbr class="only-icon" title="Server"><span>Server</span><i class="ic-server"></i></abbr></th></tr><tr class="bc-browsers"><td></td><th class="bc-browser-chrome"><abbr class="only-icon" title="Chrome"><span>Chrome</span><i class="ic-chrome"></i></abbr></th><th class="bc-browser-edge"><abbr class="only-icon" title="Edge"><span>Edge</span><i class="ic-edge"></i></abbr></th><th class="bc-browser-firefox"><abbr class="only-icon" title="Firefox"><span>Firefox</span><i class="ic-firefox"></i></abbr></th><th class="bc-browser-ie"><abbr class="only-icon" title="Internet Explorer"><span>Internet Explorer</span><i class="ic-ie"></i></abbr></th><th class="bc-browser-opera"><abbr class="only-icon" title="Opera"><span>Opera</span><i class="ic-opera"></i></abbr></th><th class="bc-browser-safari"><abbr class="only-icon" title="Safari"><span>Safari</span><i class="ic-safari"></i></abbr></th><th class="bc-browser-webview_android"><abbr class="only-icon" title="Android webview"><span>Android webview</span><i class="ic-webview_android"></i></abbr></th><th class="bc-browser-chrome_android"><abbr class="only-icon" title="Chrome for Android"><span>Chrome for Android</span><i class="ic-chrome_android"></i></abbr></th><th class="bc-browser-edge_mobile"><abbr class="only-icon" title="Edge Mobile"><span>Edge Mobile</span><i class="ic-edge_mobile"></i></abbr></th><th class="bc-browser-firefox_android"><abbr class="only-icon" title="Firefox for Android"><span>Firefox for Android</span><i class="ic-firefox_android"></i></abbr></th><th class="bc-browser-opera_android"><abbr class="only-icon" title="Opera for Android"><span>Opera for Android</span><i class="ic-opera_android"></i></abbr></th><th class="bc-browser-safari_ios"><abbr class="only-icon" title="iOS Safari"><span>iOS Safari</span><i class="ic-safari_ios"></i></abbr></th><th class="bc-browser-samsunginternet_android"><abbr class="only-icon" title="bc_icon_name_samsunginternet_android"><span>bc_icon_name_samsunginternet_android</span><i class="ic-samsunginternet_android"></i></abbr></th><th class="bc-browser-nodejs"><abbr class="only-icon" title="Node.js"><span>Node.js</span><i class="ic-nodejs"></i></abbr></th></tr></thead><tbody><tr><th scope="row">Basic support</th><td class="bc-supports-yes bc-browser-chrome"><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              Yes</td><td class="bc-supports-yes bc-browser-edge"><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              Yes</td><td class="bc-supports-yes bc-browser-firefox"><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              Yes</td><td class="bc-supports-yes bc-browser-ie"><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              Yes</td><td class="bc-supports-yes bc-browser-opera"><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              Yes</td><td class="bc-supports-yes bc-browser-safari"><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              Yes</td><td class="bc-supports-yes bc-browser-webview_android"><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              Yes</td><td class="bc-supports-yes bc-browser-chrome_android"><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              Yes</td><td class="bc-supports-yes bc-browser-edge_mobile"><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              Yes</td><td class="bc-supports-yes bc-browser-firefox_android"><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              Yes</td><td class="bc-supports-yes bc-browser-opera_android"><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              Yes</td><td class="bc-supports-yes bc-browser-safari_ios"><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              Yes</td><td class="bc-supports-unknown bc-browser-samsunginternet_android"><abbr title="Compatibility unknown; please update this.">
+                ?
+              </abbr></td><td class="bc-supports-yes bc-browser-nodejs"><abbr class="bc-level-yes only-icon" title="Full support">
+                <span>Full support</span>
+              </abbr>
+              Yes</td></tr><tr><th scope="row"><code>flags</code> <div class="bc-icons"><abbr class="only-icon" title="Deprecated. Not for use in new websites."><span>Deprecated</span><i class="ic-deprecated"></i></abbr><abbr class="only-icon" title="Non-standard. Expect poor cross-browser support."><span>Non-standard</span><i class="ic-non-standard"></i></abbr></div></th><td class="bc-supports-no bc-browser-chrome"><abbr class="bc-level-no only-icon" title="No support">
+                <span>No support</span>
+              </abbr>
+              No</td><td class="bc-supports-no bc-browser-edge"><abbr class="bc-level-no only-icon" title="No support">
+                <span>No support</span>
+              </abbr>
+              No</td><td class="bc-supports-no bc-browser-firefox"><abbr class="bc-level-no only-icon" title="No support">
+              <span>No support</span>
+            </abbr>?&nbsp;— 49</td><td class="bc-supports-no bc-browser-ie"><abbr class="bc-level-no only-icon" title="No support">
+                <span>No support</span>
+              </abbr>
+              No</td><td class="bc-supports-no bc-browser-opera"><abbr class="bc-level-no only-icon" title="No support">
+                <span>No support</span>
+              </abbr>
+              No</td><td class="bc-supports-no bc-browser-safari"><abbr class="bc-level-no only-icon" title="No support">
+                <span>No support</span>
+              </abbr>
+              No</td><td class="bc-supports-no bc-browser-webview_android"><abbr class="bc-level-no only-icon" title="No support">
+                <span>No support</span>
+              </abbr>
+              No</td><td class="bc-supports-no bc-browser-chrome_android"><abbr class="bc-level-no only-icon" title="No support">
+                <span>No support</span>
+              </abbr>
+              No</td><td class="bc-supports-no bc-browser-edge_mobile"><abbr class="bc-level-no only-icon" title="No support">
+                <span>No support</span>
+              </abbr>
+              No</td><td class="bc-supports-no bc-browser-firefox_android"><abbr class="bc-level-no only-icon" title="No support">
+                <span>No support</span>
+              </abbr>
+              No</td><td class="bc-supports-no bc-browser-opera_android"><abbr class="bc-level-no only-icon" title="No support">
+                <span>No support</span>
+              </abbr>
+              No</td><td class="bc-supports-no bc-browser-safari_ios"><abbr class="bc-level-no only-icon" title="No support">
+                <span>No support</span>
+              </abbr>
+              No</td><td class="bc-supports-unknown bc-browser-samsunginternet_android"><abbr title="Compatibility unknown; please update this.">
+                ?
+              </abbr></td><td class="bc-supports-no bc-browser-nodejs"><abbr class="bc-level-no only-icon" title="No support">
+                <span>No support</span>
+              </abbr>
+              No</td></tr></tbody></table><section id="sect1" class="bc-legend"><h3 id="Legend" class="offscreen highlight-spanned"><span class="highlight-span">Legend</span></h3><dl><dt><span class="bc-supports-yes bc-supports">
+                <abbr class="bc-level bc-level-yes only-icon" title="Full support">
+                 <span>Full support</span>
+                 &nbsp;
+                </abbr></span></dt><dd>Full support</dd><dt><span class="bc-supports-no bc-supports">
+                <abbr class="bc-level bc-level-no only-icon" title="No support">
+                 <span>No support</span>
+                 &nbsp;
+                </abbr></span></dt><dd>No support</dd><dt><span class="bc-supports-unknown bc-supports">
+                <abbr class="bc-level bc-level-unknown only-icon" title="Compatibility unknown">
+                 <span>Compatibility unknown</span>
+                 &nbsp;
+                </abbr></span></dt><dd>Compatibility unknown</dd><dt><abbr class="only-icon" title="Non-standard. Expect poor cross-browser support."><span>Non-standard. Expect poor cross-browser support.</span><i class="ic-non-standard"></i></abbr></dt><dd>Non-standard. Expect poor cross-browser support.</dd><dt><abbr class="only-icon" title="Deprecated. Not for use in new websites."><span>Deprecated. Not for use in new websites.</span><i class="ic-deprecated"></i></abbr></dt><dd>Deprecated. Not for use in new websites.</dd></dl></section></div><p></p>
+
+<h2 id="Firefox-specific_notes">Firefox-specific notes</h2>
+
+<ul>
+ <li><code>flags</code>&nbsp;was a non standard third argument&nbsp;only available in&nbsp;Gecko&nbsp;:&nbsp;<var>str</var>.replace(<var>regexp</var>|<var>substr</var>,&nbsp;<var>newSubStr</var>|<var>function, flags</var>)</li>
+ <li>Starting with Gecko 27 (Firefox 27 / Thunderbird 27 / SeaMonkey 2.24), this method has been adjusted to conform with the ECMAScript specification. When <code>replace()</code> is called with a global regular expression, the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastIndex" title="The lastIndex is a read/write integer property of regular expression instances that specifies the index at which to start the next match."><code>RegExp.lastIndex</code></a> property (if specified) will be reset to <code>0</code> (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=501739" title="FIXED: String match and replace methods do not update global regexp lastIndex per ES3&amp;5" class="external external-icon" rel="noopener">bug&nbsp;501739</a>).</li>
+ <li>Starting with Gecko 39 (Firefox 39 / Thunderbird 39 / SeaMonkey 2.36), the non-standard <code>flags</code> argument is deprecated and throws a console warning (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1142351" title="FIXED: Add console warnings for non-standard flag argument of String.prototype.{search,match,replace}." class="external external-icon" rel="noopener">bug&nbsp;1142351</a>).</li>
+ <li>Starting with Gecko 47 (Firefox 47 / Thunderbird 47 / SeaMonkey 2.44), the non-standard <code>flags</code> argument is no longer supported in non-release builds and will soon be removed entirely (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1245801" title="FIXED: Disable non-standard flag argument of String.prototype.{search,match,replace} in non-release build." class="external external-icon" rel="noopener">bug&nbsp;1245801</a>).</li>
+ <li>Starting with Gecko 49 (Firefox 49 / Thunderbird 49 / SeaMonkey 2.46), the non-standard <code>flags</code> argument is no longer supported (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1108382" title="FIXED: Remove non-standard flag argument from String.prototype.{search,match,replace}" class="external external-icon" rel="noopener">bug&nbsp;1108382</a>).</li>
+</ul>
+
+<h2 id="See_also">See also</h2>
+
+<ul>
+ <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match" title="The match() method retrieves the matches when matching a string against a regular expression."><code>String.prototype.match()</code></a></li>
+ <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec" title="The exec() method executes a search for a match in a specified string. Returns a result array, or null."><code>RegExp.prototype.exec()</code></a></li>
+ <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test" title="The test() method executes a search for a match between a regular expression and a specified string. Returns true or false."><code>RegExp.prototype.test()</code></a></li>
+</ul>
+                  
+                
+              </article>
+
+              <!-- contributors -->
+              <div class="wiki-block contributors">
+                <h2 class="offscreen">Document Tags and Contributors</h2>
+                
+                
+  <div class="tag-attach-list contributors-sub">
+    <i aria-hidden="true" class="icon-tags icon-fw"></i>
+    <strong>Tags:</strong>&nbsp;
+    <ul class="tags tags-small">
+      
+        <li><a href="https://developer.mozilla.org/en-US/docs/tag/Expressions" rel="nofollow, noindex">Expressions</a></li>
+      
+        <li><a href="https://developer.mozilla.org/en-US/docs/tag/JavaScript" rel="nofollow, noindex">JavaScript</a></li>
+      
+        <li><a href="https://developer.mozilla.org/en-US/docs/tag/Method" rel="nofollow, noindex">Method</a></li>
+      
+        <li><a href="https://developer.mozilla.org/en-US/docs/tag/Prototype" rel="nofollow, noindex">Prototype</a></li>
+      
+        <li><a href="https://developer.mozilla.org/en-US/docs/tag/Reference" rel="nofollow, noindex">Reference</a></li>
+      
+        <li><a href="https://developer.mozilla.org/en-US/docs/tag/Regular" rel="nofollow, noindex">Regular</a></li>
+      
+        <li><a href="https://developer.mozilla.org/en-US/docs/tag/String" rel="nofollow, noindex">String</a></li>
+      
+    </ul>
+  </div>
+
+
+                
+                  <div class="contributors-sub">
+                    <i aria-hidden="true" class="icon-group icon-fw"></i>&nbsp;<strong>Contributors to this page:</strong> 
+        <a href="https://developer.mozilla.org/en-US/profiles/roryokane">roryokane</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/MathieuDerelle">MathieuDerelle</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/isavegas">isavegas</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/fscholz">fscholz</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/jameshkramer">jameshkramer</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/tuggyne">tuggyne</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/JonathanPool">JonathanPool</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/destin.moulton">destin.moulton</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/zakyrie">zakyrie</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/raksa">raksa</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/john-d-pelingo">john-d-pelingo</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/Sheppy">Sheppy</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/chharvey">chharvey</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/Fornost461">Fornost461</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/benirose">benirose</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/arai">arai</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/pcat">pcat</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/cvrebert">cvrebert</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/stevemao">stevemao</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/mamodayo">mamodayo</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/GreenJello">GreenJello</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/George8211">George8211</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/TimothyGu">TimothyGu</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/ziyunfei">ziyunfei</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/polandeme">polandeme</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/cliffordfajardo">cliffordfajardo</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/Mingun">Mingun</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/markg">markg</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/isiahmeadows">isiahmeadows</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/mathfreak231">mathfreak231</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/sbstp">sbstp</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/DevelX">DevelX</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/teoli">teoli</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/_scottwarren">_scottwarren</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/Sroucheray">Sroucheray</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/ewooley">ewooley</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/xwlee">xwlee</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/walmik">walmik</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/jlanus">jlanus</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/ianpgall">ianpgall</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/Pointy">Pointy</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/bigbossSNK">bigbossSNK</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/NathanLong">NathanLong</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/woolstar">woolstar</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/Travis.Hardiman">Travis.Hardiman</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/Rob%20W">Rob W</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/tomalak_geretkal">tomalak_geretkal</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/evilpie">evilpie</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/Brettz9">Brettz9</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/inimino">inimino</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/jorh">jorh</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/Ruakh">Ruakh</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/Johnjbarton">Johnjbarton</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/Sevenspade">Sevenspade</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/Potappo">Potappo</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/Matej%20Lednar">Matej Lednar</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/PointedEars">PointedEars</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/Mgjbot">Mgjbot</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/Waldo">Waldo</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/BenoitL">BenoitL</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/Johnmblack@gmail.com">Johnmblack@gmail.com</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/Ch0pp3r">Ch0pp3r</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/Nickolay">Nickolay</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/Danbeck">Danbeck</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/Raevel">Raevel</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/Jonathan_Watt">Jonathan_Watt</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/Maian">Maian</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/Hao2lian">Hao2lian</a>, 
+    
+        <a href="https://developer.mozilla.org/en-US/profiles/Dria">Dria</a>
+    
+                  </div>
+                
+
+                
+                  <div class="contributors-sub">
+                    <i aria-hidden="true" class="icon-clock-o icon-fw"></i>&nbsp;<strong>Last updated by:</strong>
+                    <a href="https://developer.mozilla.org/en-US/profiles/roryokane">roryokane</a>,
+                    <time datetime="2017-11-06T14:02:37.179791-08:00">Nov 6, 2017, 2:02:37 PM</time>
+                  </div>
+                
+              </div>
+            </div>
+
+            
+              <!-- quick links and zone subnav strip -->
+              <div id="wiki-left" class="column-strip wiki-column">
+
+                
+                  <!-- crumbs -->
+                  
+  
+    <nav class="crumbs" role="navigation">
+      <ol typeof="BreadcrumbList" vocab="https://schema.org/" aria-label="breadcrumbs">
+        
+          <li property="itemListElement" typeof="ListItem" class="crumb">
+            <a href="https://developer.mozilla.org/en-US/docs/Web" property="item" typeof="WebPage">
+              <span property="name">Web technology for developers</span>
+            </a>
+            <meta property="position" content="1">
+          </li>
+        
+          <li property="itemListElement" typeof="ListItem" class="crumb">
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" property="item" typeof="WebPage">
+              <span property="name">Java<wbr>Script</span>
+            </a>
+            <meta property="position" content="2">
+          </li>
+        
+          <li property="itemListElement" typeof="ListItem" class="crumb">
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference" property="item" typeof="WebPage">
+              <span property="name">Java<wbr>Script reference</span>
+            </a>
+            <meta property="position" content="3">
+          </li>
+        
+          <li property="itemListElement" typeof="ListItem" class="crumb">
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects" property="item" typeof="WebPage">
+              <span property="name">Standard built-in objects</span>
+            </a>
+            <meta property="position" content="4">
+          </li>
+        
+          <li property="itemListElement" typeof="ListItem" class="crumb">
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" property="item" typeof="WebPage">
+              <span property="name">String</span>
+            </a>
+            <meta property="position" content="5">
+          </li>
+        
+        <li property="itemListElement" typeof="ListItem" class="crumb">
+          <span property="name">String<wbr>.prototype<wbr>.replace()</span>
+        </li>
+      </ol>
+    </nav>
+  
+                
+
+                
+
+                
+                  <!-- quick links -->
+                  
+  <div class="quick-links" id="quick-links">
+    <div class="quick-links-head">Related Topics</div>
+    <ol><li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects">Standard built-in objects</a></strong></li><li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String"><code>String</code></a></strong></li><li data-default-state="open" class="toggleable current" data-closed=""><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#" class="toggler" aria-haspopup="true"><i aria-hidden="true" class="icon-caret-down"></i><strong>Properties</strong></a><ol class="toggle-container" aria-expanded="true" style="display: block;"><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/prototype" title="The String.prototype property represents the String prototype object."><code>String<wbr>.prototype</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/length" title="The length property of a String object indicates the length of a string, in UTF-16 code units."><code>string<wbr>.length</code></a></li></ol></li><li data-default-state="open" class="toggleable current" data-closed=""><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#" class="toggler" aria-haspopup="true"><i aria-hidden="true" class="icon-caret-down"></i><strong>Methods</strong></a><ol class="toggle-container" aria-expanded="true" style="display: block;"><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode" title="The static String.fromCharCode() method returns a string created from the specified sequence of UTF-16 code units."><code>String<wbr>.from<wbr>Char<wbr>Code()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCodePoint" title="The static String.fromCodePoint() method returns a string created by using the specified sequence of code points."><code>String<wbr>.from<wbr>Code<wbr>Point()</code></a></li><li><span class="sidebar-icon"><span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/anchor" title="The anchor() method creates an &lt;a&gt; HTML anchor element that is used as a hypertext target."><code>String<wbr>.prototype<wbr>.anchor()</code></a></li><li><span class="sidebar-icon"><span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/big" title="The big() method creates a &lt;big&gt; HTML element that causes a string to be displayed in a big font."><code>String<wbr>.prototype<wbr>.big()</code></a></li><li><span class="sidebar-icon"><span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/blink" title="The blink() method creates a &lt;blink&gt; HTML element that causes a string to blink."><code>String<wbr>.prototype<wbr>.blink()</code></a></li><li><span class="sidebar-icon"><span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/bold" title="The bold() method creates a &lt;b&gt; HTML element that causes a string to be displayed as bold."><code>String<wbr>.prototype<wbr>.bold()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charAt" title="The String object&#39;s charAt() method returns a new string consisting of the single UTF-16 code unit located at the specified offset into the string."><code>String<wbr>.prototype<wbr>.charAt()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt" title="The charCodeAt() method returns an integer between 0 and 65535 representing the UTF-16 code unit at the given index (the UTF-16 code unit matches the Unicode code point for code points representable in a single UTF-16 code unit, but might also be the first code unit of a surrogate pair for code points not representable in a single UTF-16 code unit, e.g. Unicode code points &gt; 0x10000). If you want the entire code point value, use codePointAt()."><code>String<wbr>.prototype<wbr>.char<wbr>CodeAt()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/codePointAt" title="The codePointAt() method returns a non-negative integer that is the Unicode code point value."><code>String<wbr>.prototype<wbr>.code<wbr>PointAt()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/concat" title="The concat() method combines the text of one or more strings and returns a new string."><code>String<wbr>.prototype<wbr>.concat()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith" title="The endsWith() method determines whether a string ends with the characters of a specified string, returning true or false as appropriate."><code>String<wbr>.prototype<wbr>.ends<wbr>With()</code></a></li><li><span class="sidebar-icon"><span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fixed" title="The fixed() method creates a &lt;tt&gt; HTML element that causes a string to be displayed in fixed-pitch font."><code>String<wbr>.prototype<wbr>.fixed()</code></a></li><li><span class="sidebar-icon"><span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fontcolor" title="The fontcolor() method creates a &lt;font&gt; HTML element that causes a string to be displayed in the specified font color."><code>String<wbr>.prototype<wbr>.fontcolor()</code></a></li><li><span class="sidebar-icon"><span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fontsize" title="The fontsize() method creates a &lt;font&gt; HTML element that causes a string to be displayed in the specified font size."><code>String<wbr>.prototype<wbr>.fontsize()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes" title="The includes() method determines whether one string may be found within another string, returning true or false as appropriate."><code>String<wbr>.prototype<wbr>.includes()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf" title="The indexOf() method returns the index within the calling String object of the first occurrence of the specified value, starting the search at fromIndex. Returns -1 if the value is not found."><code>String<wbr>.prototype<wbr>.indexOf()</code></a></li><li><span class="sidebar-icon"><span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/italics" title="The italics() method creates an &lt;i&gt; HTML element that causes a string to be italic."><code>String<wbr>.prototype<wbr>.italics()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/lastIndexOf" title="The lastIndexOf() method returns the index within the calling String object of the last occurrence of the specified value, searching backwards from fromIndex. Returns -1 if the value is not found."><code>String<wbr>.prototype<wbr>.last<wbr>IndexOf()</code></a></li><li><span class="sidebar-icon"><span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/link" title="The link() method creates a string representing the code for an &lt;a&gt; HTML element to be used as a hypertext link to another URL."><code>String<wbr>.prototype<wbr>.link()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare" title="The localeCompare() method returns a number indicating whether a reference string comes before or after or is the same as the given string in sort order."><code>String<wbr>.prototype<wbr>.locale<wbr>Compare()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match" title="The match() method retrieves the matches when matching a string against a regular expression."><code>String<wbr>.prototype<wbr>.match()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize" title="The normalize() method returns the Unicode Normalization Form of a given string (if the value isn&#39;t a string, it will be converted to one first)."><code>String<wbr>.prototype<wbr>.normalize()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd" title="The padEnd() method pads the current string with a given string (repeated, if needed) so that the resulting string reaches a given length. The padding is applied from the end (right) of the current string."><code>String<wbr>.prototype<wbr>.padEnd()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart" title="The padStart() method pads the current string with another string (repeated, if needed) so that the resulting string reaches the given length. The padding is applied from the start (left) of the current string."><code>String<wbr>.prototype<wbr>.pad<wbr>Start()</code></a></li><li><span class="sidebar-icon"><span title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><s class="obsoleteElement"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/quote" title="The non-standard quote() method returns a copy of the string, replacing various special characters in the string with their escape sequences and wrapping the result in double-quotes (&quot;)."><code>String<wbr>.prototype<wbr>.quote()</code></a></s></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/repeat" title="The repeat() method constructs and returns a new string which contains the specified number of copies of the string on which it was called, concatenated together."><code>String<wbr>.prototype<wbr>.repeat()</code></a></li><li><em><code>String.prototype.replace()</code></em></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/search" title="The search() method executes a search for a match between a regular expression and this String object."><code>String<wbr>.prototype<wbr>.search()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice" title="The slice() method extracts a section of a string and returns it as a new string."><code>String<wbr>.prototype<wbr>.slice()</code></a></li><li><span class="sidebar-icon"><span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/small" title="The small() method creates a &lt;small&gt; HTML element that causes a string to be displayed in a small font."><code>String<wbr>.prototype<wbr>.small()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split" title="The split() method splits a String object into an array of strings by separating the string into substrings, using a specified separator string to determine where to make each split."><code>String<wbr>.prototype<wbr>.split()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith" title="The startsWith() method determines whether a string begins with the characters of a specified string, returning true or false as appropriate."><code>String<wbr>.prototype<wbr>.starts<wbr>With()</code></a></li><li><span class="sidebar-icon"><span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/strike" title="The strike() method creates a &lt;strike&gt; HTML element that causes a string to be displayed as struck-out text."><code>String<wbr>.prototype<wbr>.strike()</code></a></li><li><span class="sidebar-icon"><span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/sub" title="The sub() method creates a &lt;sub&gt; HTML element that causes a string to be displayed as subscript."><code>String<wbr>.prototype<wbr>.sub()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substr" title="The substr() method returns the characters in a string beginning at the specified location through the specified number of characters."><code>String<wbr>.prototype<wbr>.substr()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring" title="The substring() method returns a subset of a string between one index and another, or through the end of the string."><code>String<wbr>.prototype<wbr>.substring()</code></a></li><li><span class="sidebar-icon"><span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/sup" title="The sup() method creates a &lt;sup&gt; HTML element that causes a string to be displayed as superscript."><code>String<wbr>.prototype<wbr>.sup()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLocaleLowerCase" title="The toLocaleLowerCase() method returns the calling string value converted to lower case, according to any locale-specific case mappings."><code>String<wbr>.prototype<wbr>.toLocale<wbr>Lower<wbr>Case()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLocaleUpperCase" title="The toLocaleUpperCase() method returns the calling string value converted to upper case, according to any locale-specific case mappings."><code>String<wbr>.prototype<wbr>.toLocale<wbr>Upper<wbr>Case()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase" title="The toLowerCase() method returns the calling string value converted to lower case."><code>String<wbr>.prototype<wbr>.toLower<wbr>Case()</code></a></li><li><span class="sidebar-icon"><span title="This API has not been standardized."><i class="icon-warning-sign"> </i></span></span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toSource" title="The toSource() method returns a string representing the source code of the object."><code>String<wbr>.prototype<wbr>.toSource()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toString" title="The toString() method returns a string representing the specified object."><code>String<wbr>.prototype<wbr>.toString()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase" title="The toUpperCase() method returns the calling string value converted to upper case."><code>String<wbr>.prototype<wbr>.toUpper<wbr>Case()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim" title="The trim() method removes whitespace from both ends of a string. Whitespace in this context is all the whitespace characters (space, tab, no-break space, etc.) and all the line terminator characters (LF, CR, etc.)."><code>String<wbr>.prototype<wbr>.trim()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/TrimLeft" title="The trimLeft() method removes whitespace from the left end of a string."><code>String<wbr>.prototype<wbr>.trim<wbr>Left()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/TrimRight" title="The trimRight() method removes whitespace from the right end of a string."><code>String<wbr>.prototype<wbr>.trim<wbr>Right()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/valueOf" title="The valueOf() method returns the primitive value of a String object."><code>String<wbr>.prototype<wbr>.valueOf()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/@@iterator" title="The [@@iterator]() method returns a new Iterator object that iterates over the code points of a String value, returning each code point as a String value."><code>String<wbr>.prototype<wbr>[@@iterator]()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/raw" title="The static String.raw() method is a tag function of template literals, similar to the r prefix in Python or the @ prefix in C# for string literals (yet there is a difference: see explanations in this issue). It&#39;s used to get the raw string form of template strings (that is, the original, uninterpreted text)."><code>String<wbr>.raw()</code></a></li></ol></li><li><strong>Inheritance:</strong></li><li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function"><code>Function</code></a></strong></li><li class="toggleable" data-closed="true"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#" class="toggler" aria-haspopup="true"><i aria-hidden="true" class="icon-caret-right"></i><strong>Properties</strong></a><ol class="toggle-container" style="display: none;"><li><span class="sidebar-icon"><span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/arguments" title="The function.arguments property refers to an an array-like object corresponding to the arguments passed to a function. Use the simple variable arguments instead. This property is forbidden in strict model due to taill call optimization."><code>Function<wbr>.arguments</code></a></li><li><span class="sidebar-icon"><span title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><s class="obsoleteElement"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/arity" title="The arity property used to return the number of arguments expected by the function, however, it no longer exists and has been replaced by the Function.prototype.length property."><code>Function<wbr>.arity</code></a></s></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/caller" title="The function.caller property returns the function that invoked the specified function. This property is forbidden in strict model due to tail call optimization."><code>Function<wbr>.caller</code></a></li><li><span class="sidebar-icon"><span title="This API has not been standardized."><i class="icon-warning-sign"> </i></span></span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/displayName" title="The function.displayName property returns the display name of the function."><code>Function<wbr>.display<wbr>Name</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/length" title="The length property specifies the number of arguments expected by the function."><code>Function<wbr>.length</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/name" title="A Function object&#39;s read-only name property indicates the function&#39;s name as specified when it was created, or &quot;anonymous&quot; for functions created anonymously."><code>Function<wbr>.name</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype" title="The Function.prototype property represents the Function prototype object."><code>Function<wbr>.prototype</code></a></li></ol></li><li class="toggleable" data-closed="true"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#" class="toggler" aria-haspopup="true"><i aria-hidden="true" class="icon-caret-right"></i><strong>Methods</strong></a><ol class="toggle-container" style="display: none;"><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply" title="The apply() method calls a function with a given this value, and arguments provided as an array (or an array-like object)."><code>Function<wbr>.prototype<wbr>.apply()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind" title="The bind() method creates a new function that, when called, has its this keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called."><code>Function<wbr>.prototype<wbr>.bind()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call" title="The call() method calls a function with a given this value and arguments provided individually."><code>Function<wbr>.prototype<wbr>.call()</code></a></li><li><span class="sidebar-icon"><span title="This API has not been standardized."><i class="icon-warning-sign"> </i></span></span><span class="sidebar-icon"><span title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><s class="obsoleteElement"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/isGenerator" title="The non-standard isGenerator() method used to determine whether or not a function is a generator. It has been removed from Firefox starting with version 58."><code>Function<wbr>.prototype<wbr>.isGenerator()</code></a></s></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/toSource" title="The toSource() method returns a string representing the source code of the object."><code>Function<wbr>.prototype<wbr>.toSource()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/toString" title="The toString() method returns a string representing the source code of the function."><code>Function<wbr>.prototype<wbr>.toString()</code></a></li></ol></li><li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object"><code>Object</code></a></strong></li><li class="toggleable" data-closed="true"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#" class="toggler" aria-haspopup="true"><i aria-hidden="true" class="icon-caret-right"></i><strong>Properties</strong></a><ol class="toggle-container" style="display: none;"><li><span class="sidebar-icon"><span title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><s class="obsoleteElement"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/count" title="The __count__ property used to store the count of enumerable properties on the object, but it has been removed."><code>Object<wbr>.prototype.__count__</code></a></s></li><li><span class="sidebar-icon"><span title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><s class="obsoleteElement"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/noSuchMethod" title="The __noSuchMethod__ property used to reference a function to be executed when a non-existent method is called on an object, but this function is no longer available."><code>Object<wbr>.prototype.__noSuch<wbr>Method__</code></a></s></li><li><span class="sidebar-icon"><span title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><s class="obsoleteElement"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/Parent" title="The __parent__ property used to point to an object&#39;s context, but it has been removed."><code>Object<wbr>.prototype.__parent__</code></a></s></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto" title="The __proto__ property of Object.prototype is an accessor property (a getter function and a setter function) that exposes the internal [[Prototype]] (either an object or null) of the object through which it is accessed."><code>Object<wbr>.prototype.__proto__</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor" title="Returns a reference to the Object constructor function that created the instance object. Note that the value of this property is a reference to the function itself, not a string containing the function&#39;s name. The value is only read-only for primitive values such as 1, true and &quot;test&quot;."><code>Object<wbr>.prototype<wbr>.constructor</code></a></li></ol></li><li class="toggleable" data-closed="true"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#" class="toggler" aria-haspopup="true"><i aria-hidden="true" class="icon-caret-right"></i><strong>Methods</strong></a><ol class="toggle-container" style="display: none;"><li><span class="sidebar-icon"><span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineGetter__" title="The __defineGetter__ method binds an object&#39;s property to a function to be called when that property is looked up."><code>Object<wbr>.prototype.__define<wbr>Getter__()</code></a></li><li><span class="sidebar-icon"><span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineSetter__" title="The __defineSetter__ method binds an object&#39;s property to a function to be called when an attempt is made to set that property."><code>Object<wbr>.prototype.__define<wbr>Setter__()</code></a></li><li><span class="sidebar-icon"><span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/__lookupGetter__" title="The __lookupGetter__ method returns the function bound as a getter to the specified property."><code>Object<wbr>.prototype.__lookup<wbr>Getter__()</code></a></li><li><span class="sidebar-icon"><span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/__lookupSetter__" title="The __lookupSetter__ method returns the function bound as a setter to the specified property."><code>Object<wbr>.prototype.__lookup<wbr>Setter__()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty" title="The hasOwnProperty() method returns a boolean indicating whether the object has the specified property as own (not inherited) property."><code>Object<wbr>.prototype<wbr>.has<wbr>OwnProperty()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isPrototypeOf" title="The isPrototypeOf() method checks if an object exists in another object&#39;s prototype chain."><code>Object<wbr>.prototype<wbr>.isPrototypeOf()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/propertyIsEnumerable" title="The propertyIsEnumerable() method returns a Boolean indicating whether the specified property is enumerable."><code>Object<wbr>.prototype<wbr>.property<wbr>IsEnumerable()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toLocaleString" title="The toLocaleString() method returns a string representing the object. This method is meant to be overridden by derived objects for locale-specific purposes."><code>Object<wbr>.prototype<wbr>.toLocale<wbr>String()</code></a></li><li><span class="sidebar-icon"><span title="This API has not been standardized."><i class="icon-warning-sign"> </i></span></span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toSource" title="The toSource() method returns a string representing the source code of the object."><code>Object<wbr>.prototype<wbr>.toSource()</code></a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString" title="The toString() method returns a string representing the object."><code>Object<wbr>.prototype<wbr>.toString()</code></a></li><li><span class="sidebar-icon"><span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></span><span class="sidebar-icon"><span title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><s class="obsoleteElement"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/unwatch" title="The unwatch() method removes a watchpoint set with the watch() method."><code>Object<wbr>.prototype<wbr>.unwatch()</code></a></s></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf" title="The valueOf() method returns the primitive value of the specified object."><code>Object<wbr>.prototype<wbr>.valueOf()</code></a></li><li><span class="sidebar-icon"><span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></span><span class="sidebar-icon"><span title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><s class="obsoleteElement"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/watch" title="The watch() method watches for a property to be assigned a value and runs a function when that occurs."><code>Object<wbr>.prototype<wbr>.watch()</code></a></s></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf" title="The Object.setPrototypeOf() method sets the prototype (i.e., the internal [[Prototype]] property) of a specified object to another object or null."><code>Object<wbr>.set<wbr>PrototypeOf()</code></a></li></ol></li></ol>
+  </div>
+                
+
+                <!-- approvals -->
+                
+
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div> <!-- ends "main-content" -->
+
+    
+      <div class="newsletter-box">
+        <div class="newsletter">
+    <form id="newsletterForm" class="newsletter-form nodisable" name="newsletter-form" action="https://www.mozilla.org/en-US/newsletter/" method="post">
+        <div class="newsletter-head">
+            <h2 class="newsletter-teaser">Learn the best of web development</h2>
+            <p class="newsletter-description">Get the latest and greatest from MDN delivered straight to your inbox.</p>
+            
+        </div>
+
+        <div class="newsletter-fields">
+            <input type="hidden" id="fmt" name="fmt" value="H">
+            <input type="hidden" id="newsletterNewslettersInput" name="newsletters" value="app-dev">
+            <div id="newsletterErrors" class="newsletter-errors"></div>
+
+            <div id="newsletterEmail" class="form-group newsletter-group-email">
+                <label for="newsletterEmailInput" class="form-label offscreen">E-mail</label>
+                <input type="email" id="newsletterEmailInput" name="email" class="form-input newsletter-input-email" required="" placeholder="you@example.com" size="30">
+            </div>
+
+            <div id="newsletterPrivacy" class="form-group form-group-agree newsletter-group-privacy hidden">
+                <input type="checkbox" id="newsletterPrivacyInput" name="privacy" required="">
+                <label for="newsletterPrivacyInput">
+                I'm okay with Mozilla handling my info as explained in this <a href="https://www.mozilla.org/privacy/">Privacy Policy</a>.
+                </label>
+            </div>
+            <div id="newsletterSubmit" class="newsletter-group-submit">
+                <button id="newsletter-submit" type="submit" class="button neutral newsletter-submit">Sign up now</button>
+            </div>
+        </div>
+    </form>
+    <div id="newsletterThanks" class="newsletter-thanks hidden">
+        <h2>Thanks! Please check your inbox to confirm your subscription.</h2>
+        <p>If you haven’t previously confirmed a subscription to a Mozilla-related newsletter you may have to do so. Please check your inbox or your spam filter for an email from us.
+        </p>
+    </div>
+    <button id="newsletterHide" type="button" class="only-icon newsletter-hide"><span>Hide Newsletter Sign-up</span><i aria-hidden="true" class="icon-times"></i></button>
+</div>
+      </div>
+    
+
+  <menu type="context" id="edit-history-menu">
+    <menuitem data-action="/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace$edit" label="Edit page"></menuitem>
+    <menuitem data-action="/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace$history" label="View page history"></menuitem>
+  </menu>
+
+      </div>
+  </main>
+  <!-- Footer -->
+    <footer id="nav-footer" class="nav-footer">
+      <div class="center">
+          <a href="https://developer.mozilla.org/en-US/" class="nav-footer-logo">MDN Web Docs</a>
+          <div class="footer-group footer-group-mdn">
+            <h2 class="footer-title">MDN</h2>
+            <ul class="footer-list">
+              <li><a href="https://developer.mozilla.org/en-US/docs/Web">Web Technologies</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/docs/Learn">Learn Web Development</a></li>
+              <li><a href="https://developer.mozilla.org/docs/MDN/About">About MDN</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/docs/MDN/Feedback">Feedback</a></li>
+              <li class="footer-social"><a href="https://twitter.com/mozdevnet" class="only-icon"><i aria-hidden="true" class="icon-twitter"></i> <span>Twitter</span></a></li>
+              <li class="footer-social"><a href="https://github.com/mdn/" class="only-icon"><i aria-hidden="true" class="icon-github"></i> <span>GitHub</span></a></li>
+            </ul>
+          </div>
+
+          <a href="https://mozilla.org/" class="nav-footer-mozilla">Mozilla</a>
+          <div class="footer-group footer-group-mozilla">
+            <h2 class="footer-title">Mozilla</h2>
+            <ul class="footer-list">
+              <li><a href="https://www.mozilla.org/about/">About</a></li>
+              <li><a href="https://www.mozilla.org/contact/">Contact Us</a></li>
+              <li><a href="https://donate.mozilla.org/?utm_source=developer.mozilla.org&amp;utm_medium=referral&amp;utm_content=footer">Donate</a></li>
+              <li><a href="https://www.mozilla.org/firefox/?utm_source=developer.mozilla.org&amp;utm_campaign=footer&amp;utm_medium=referral">Firefox</a></li>
+              <li class="footer-social"><a href="https://twitter.com/mozilla" class="only-icon"><i aria-hidden="true" class="icon-twitter"></i> <span>Twitter</span></a></li>
+              <li class="footer-social"><a href="https://www.facebook.com/mozilla" class="only-icon"><i aria-hidden="true" class="icon-facebook"></i> <span>Facebook</span></a></li>
+              <li class="footer-social"><a href="https://www.instagram.com/mozillagram/" class="only-icon"><i aria-hidden="true" class="icon-instagram"></i> <span>Instagram</span></a></li>
+            </ul>
+          </div>
+
+          
+  
+    <form class="languages go" method="get" action="https://developer.mozilla.org/en-US/docs/Web">
+      <label for="language">Other languages:</label>
+      <select id="language" class="wiki-l10n" name="next" dir="ltr">
+        <option title="English (US)" value="/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace" selected="">
+          English (US) (en-US)
+        </option>
+        
+          <option title="German" value="/de/docs/Web/JavaScript/Reference/Global_Objects/String/replace">
+            Deutsch (de)
+          </option>
+          <option title="Spanish" value="/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/replace">
+            Español (es)
+          </option>
+          <option title="French" value="/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/replace">
+            Français (fr)
+          </option>
+          <option title="Japanese" value="/ja/docs/Web/JavaScript/Reference/Global_Objects/String/replace">
+            日本語 (ja)
+          </option>
+          <option title="Korean" value="/ko/docs/Web/JavaScript/Reference/Global_Objects/String/replace">
+            한국어 (ko)
+          </option>
+          <option title="Portuguese (Brazilian)" value="/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/replace">
+            Português (do&nbsp;Brasil) (pt-BR)
+          </option>
+          <option title="Russian" value="/ru/docs/Web/JavaScript/Reference/Global_Objects/String/replace">
+            Русский (ru)
+          </option>
+          <option title="Chinese (Simplified)" value="/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace">
+            中文 (简体) (zh-CN)
+          </option>
+          <option title="Chinese (Traditional)" value="/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/String/replace">
+            正體中文 (繁體) (zh-TW)
+          </option>
+      </select>
+      <noscript>&lt;button type="submit"&gt;Go&lt;/button&gt;</noscript>
+    </form>
+  
+
+
+          
+            <ul class="footer-tos">
+              <li><a href="https://www.mozilla.org/about/legal/terms/mozilla">Terms</a></li>
+              <li><a href="https://www.mozilla.org/privacy/websites/">Privacy</a></li>
+              <li><a href="https://www.mozilla.org/privacy/websites/#cookies">Cookies</a></li>
+            </ul>
+
+            <div id="license" class="contentinfo">
+              <p>© 2005-2018 Mozilla and individual contributors.</p> <p>Content is available under <a href="https://developer.mozilla.org/en-US/docs/MDN/About#Copyrights_and_licenses">these licenses</a>.</p>
+            </div>
+          
+      </div>
+    </footer> 
+
+  <!-- site js -->
+  
+    
+    <!--[if lte IE 8]><script type="text/javascript" src="https://cdn.mdn.mozilla.net/static/build/js/selectivizr.091e18cf669b.js" charset="utf-8"></script><![endif]-->
+
+    
+    <script type="text/javascript" src="./String.prototype.replace() - JavaScript _ MDN_files/javascript.b28203373cc1.js"></script>
+    <script type="text/javascript" src="./String.prototype.replace() - JavaScript _ MDN_files/main.1a9ef20ed7e1.js" charset="utf-8"></script>
+    <script>
+      if(window.mdn && mdn.analytics) mdn.analytics.trackOutboundLinks();
+    </script>
+    
+
+  
+
+    <script async="" type="text/javascript" src="./String.prototype.replace() - JavaScript _ MDN_files/wiki.c60705233ffd.js" charset="utf-8"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+    <script async="" type="text/javascript" src="./String.prototype.replace() - JavaScript _ MDN_files/newsletter.7cd3274169f2.js" charset="utf-8"></script>
+  
+
+
+
+</body></html>
