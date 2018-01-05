@@ -14,9 +14,9 @@ class Main extends React.Component {
     let pageType = this.props.pageType;
     let item;
     if (pageType === 'standings')
-      item = <Standings changePageType={this.props.changePageType}/>
+      item = <Standings changeToTeams={this.props.changeToTeams}/>
     else if (pageType === 'teams')
-      item = <Teams changePageType={this.props.changePageType}/>
+      item = <Teams changeToTeams={this.props.changeToTeams}/>
 
     return (
       <div className="standings">

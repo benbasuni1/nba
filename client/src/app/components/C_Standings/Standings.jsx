@@ -52,7 +52,7 @@ class Standings extends React.Component {
                     <span >Win %</span>
                     <span >W-L</span>
                   </div>
-                  {this.state.eastTeams.map(team => <Team changePageType={this.props.changePageType} key={team.team_id} team={team}/>)}
+                  {this.state.eastTeams.map(team => <Team changeToTeams={this.props.changeToTeams} key={team.team_id} team={team}/>)}
                 </Col>
                 <Col mdOffset={1} md={3}>
                   <h2 className="west-standings">West</h2>
@@ -61,7 +61,7 @@ class Standings extends React.Component {
                     <span >Win %</span>
                     <span >W-L</span>
                   </div>
-                  {this.state.westTeams.map(team => <Team changePageType={this.props.changePageType} key={team.team_id} team={team}/>)}
+                  {this.state.westTeams.map(team => <Team changeToTeams={this.props.changeToTeams} key={team.team_id} team={team}/>)}
                 </Col>
             </Row>
         </Grid>

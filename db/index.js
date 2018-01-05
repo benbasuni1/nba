@@ -26,9 +26,16 @@ var getWestTeams = () => {
 };
 
 var getAllTeamIDs = () => {
-  var query = "SELECT team_id from standings";
+  var query = "SELECT team_id FROM standings";
   return new Promise((resolve, reject) => {
     connection.query(query, (error, results) => error ? reject(error) : resolve(results));
+  }).catch(err => console.log(err));
+};
+
+var getTeamStats = team_id => {
+  var query = "SELECT * FROM team_stats WHERE team_id = ?";
+  return new Promise((resolve, reject) => {
+    connection.query(query, [team_id], (error, results) => error ? reject(error) : resolve(results));
   }).catch(err => console.log(err));
 };
 
@@ -83,6 +90,7 @@ module.exports = {
   getEastTeams,
   getWestTeams,
   getAllTeamIDs,
+  getTeamStats,
   insertTeamStats,
   insertPPGLeaders,
   insertAPGLeaders,

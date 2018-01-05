@@ -27,7 +27,7 @@ class NavBarComponent extends React.Component {
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="https://www.nba.com">NBA</a>
+            <span onClick={this.props.changeToHome}>NBA</span>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>

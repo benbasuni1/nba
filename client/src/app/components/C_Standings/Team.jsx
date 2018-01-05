@@ -10,7 +10,7 @@ class Team extends React.Component {
     var team = this.props.team;
     return (
       <Router>
-        <Link to={'/teams/' + team.team_id} ><div onClick={this.props.changePageType} className={'team ' + team.team_id}> 
+        <Link to={'/teams/' + team.team_id} ><div onClick={this.props.changeToTeams} className={'team ' + team.team_id}> 
             <span className={'logo ' + team.team_id}></span>
             <span className={'rank ' + team.team_id}>{team.rank}. </span>
             <span className={'name ' + team.team_id}>{team.first_name + ' ' + team.last_name} </span>

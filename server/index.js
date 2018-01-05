@@ -26,6 +26,12 @@ app.get('/standings', (req, res) => {
   .catch(err => res.json(err));
 });
 
+app.get('/teamstats', (req, res) => {
+  nbaInteraction.getTeamStandings()
+  .then(data => res.json(data.data.standing))
+  .catch(err => res.json(err));
+});
+
 /* ==========
 == Leaders ==
 ========== */
