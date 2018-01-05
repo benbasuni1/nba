@@ -18,12 +18,14 @@ class Main extends React.Component {
     if (pageType === 'standings') {
       item = <Standings changePageType={this.props.changePageType}/>
       document.body.style.backgroundImage = `url(${backgroundImg})`;
+      document.body.style.backgroundRepeat = 'repeat';
     } else if (pageType === 'statistics') {
       item = <Statistics changePageType={this.props.changePageType}/>
       document.body.style.backgroundImage = 'none';
+      document.body.style.backgroundColor = 'darkgrey';
     } else if (pageType === 'teams') {
       item = <Teams changePageType={this.props.changePageType}/>
-      // document.body.style.backgroundImage = `url(${teamsImg})`;
+      document.body.style.backgroundImage = `url(${backgroundImg})`;
     }
 
     return (
