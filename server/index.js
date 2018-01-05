@@ -27,7 +27,8 @@ app.get('/standings', (req, res) => {
 });
 
 app.get('/teamstats', (req, res) => {
-  sqlInteraction.getTeamStats()
+  var team_id = req.rawHeaders[9].split('/').slice(-1)[0];
+  sqlInteraction.getTeamStats(team_id)
   .then(data => res.json(data))
   .catch(err => res.json(err));
 });
