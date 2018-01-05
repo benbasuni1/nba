@@ -4,6 +4,7 @@ import {Grid, Row, Col} from 'react-bootstrap';
 import NavBar from './components/NavBar.jsx';
 import Side from './components/Side.jsx';
 import Main from './components/Main.jsx';
+import png from '../assets/sacramento-kings.png';
 
 class App extends React.Component {
   constructor(props) {
@@ -24,13 +25,14 @@ class App extends React.Component {
     let item = <Main changeToTeams={this.changeToTeams} pageType={this.state.pageType}/>
     return (
         <div id="main-container">
-          <NavBar changeToHome={this.changeToHome} />
+        <img src={png}/>
+          {/* <NavBar changeToHome={this.changeToHome} />
           <Side changeToHome={this.changeToHome} />
           <Grid>
             <Row>
               <Col mdOffset={3}>{item}</Col>
             </Row>
-          </Grid>
+          </Grid> */}
         </div>
     )
   }
