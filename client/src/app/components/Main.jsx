@@ -1,8 +1,9 @@
 import axios from 'axios';
 import React from 'react';
 import Standings from './C_Standings/Standings.jsx';
-import Teams from './C_Teams/Teams.jsx'; 
+import Statistics from './C_Statistics/Statistics.jsx'; 
 import {Grid, Col, Row} from 'react-bootstrap';
+import backgroundImg from '../../assets/nba-background.png';
 
 class Main extends React.Component {
   constructor(props) {
@@ -13,12 +14,12 @@ class Main extends React.Component {
     let pageType = this.props.pageType;
     let item;
     if (pageType === 'standings') {
-      item = <Standings changeToTeams={this.props.changeToTeams}/>
-      document.body.style.backgroundColor = 'currentColor';
+      item = <Standings changeToStats={this.props.changeToStats}/>
+      document.body.style.backgroundImage = `url(${backgroundImg})`;
     }
-    else if (pageType === 'teams') {
-      item = <Teams changeToTeams={this.props.changeToTeams}/>
-      document.body.style.backgroundColor = 'white';
+    else if (pageType === 'statistics') {
+      item = <Statistics changeToStats={this.props.changeToStats}/>
+      document.body.style.backgroundImage = 'none';
     }
 
     return (

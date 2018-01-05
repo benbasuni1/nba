@@ -7,7 +7,6 @@ class NavBarComponent extends React.Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.items = props.items;
     this.state = {
       value: ''
     };
@@ -15,10 +14,12 @@ class NavBarComponent extends React.Component {
 
   handleChange(data) {
     this.setState({value: data.target.value});
+    console.log(data.target.value);
   }
 
   handleClick() {
     console.log('handled click!');
+    this.props.changeToTeams();
   }
 
   render() {
@@ -34,9 +35,9 @@ class NavBarComponent extends React.Component {
         <Navbar.Collapse>
           <Navbar.Form pullLeft>
             <FormGroup>
-              <FormControl className="search" type="text" placeholder="Search" />
+              <FormControl className="search" type="text" placeholder="Search" value={this.state.value} onChange={(data) => this.handleChange(data)}/>
             </FormGroup>
-            <Button type="submit">Submit</Button>
+            <Button onClick={this.handleClick} type="submit">Submit</Button>
           </Navbar.Form>
           <ButtonToolbar>
             <ToggleButtonGroup className="toggle-button-group" type="radio" name="options">

@@ -6,6 +6,14 @@
   width: 120%;
 }
 
+.nba-logo {
+  width: 230px;
+  position: absolute;
+  bottom: 100px;
+  left: 20px;
+  border-radius: 5px;
+}
+
 .teams-data {
   margin-top: 30px;
 }
